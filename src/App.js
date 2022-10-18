@@ -1,124 +1,74 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-function App() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+import { Box, Button, Divider, Grid, Typography } from "@mui/material";
+import React from "react";
+import CustomAppBar from "./Components/Toolbar/appBar";
+import "./app.css";
+import image from "./Image/image.png";
+import CustomButton from "./Components/CustomButtons/customButton";
+import { width } from "@mui/system";
+const App = () => {
   return (
-    <AppBar position="fixed">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <img src="./litchies_logo.png" />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
+    <>
+      <CustomAppBar />
+      <Divider color="aliceblue" />
+      <div
+        className="header"
+        style={{
+          position: "absolute",
+          height: "90vh",
+          width: "95%",
+          paddingInline: "1%",
+          overflow: "scroll",
+        }}
+      >
+        <Grid container>
+          <Grid item xs={12} md={6} sx={{ marginTop: "10%" }}>
+            <CustomButton lable={"Community"} />
+            <h1
+              style={{
+                fontFamily: "Inter",
+                fontWeight: "700",
+                fontSize: "56px",
+                lineHeight: "66px",
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+              Your Solutions For Community!
+            </h1>
+            <p
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+                lineHeight: "28px",
+                fontFamily: "Inter",
+                fontStyle: "normal",
+              }}
+            >
+              More than 2 billion people in over countries use social book to
+              stay in touch with friends & family.
+            </p>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+            <CustomButton lable={"Add More"} varient="contained" />
+            <Button
+              variant="outlined"
+              style={{
+                borderRadius: "12px",
+                color: "#ec5858",
+                borderColor: "#ec5858",
+                marginX: 2,
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+              Invite Friends
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={5} marginLeft="3%" marginTop="4%">
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <img src={image} alt="comm"></img>
+            </Box>
+          </Grid>
+        </Grid>
+      </div>
+      <div></div>
+    </>
   );
-}
+};
 
 export default App;
