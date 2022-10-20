@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Logo from "../../Image/logo/logo.js";
+import Logo from "../Image/logo/logo.js";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -8,7 +8,7 @@ import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import CustomButton from "../CustomButtons/customButton.js";
+// import CustomButton fro "../CustomButtons/customButton.js";
 import { AppBar } from "@mui/material";
 
 const CustomAppBar = () => {
@@ -26,11 +26,8 @@ const CustomAppBar = () => {
   };
 
   return (
-    <AppBar
-      sx={{ background: "transparent", boxShadow: "none", position: "sticky" }}
-     
-    >
-      <Container  maxWidth="xl">
+    <AppBar sx={{ background: "white", boxShadow: "none", position: "sticky" }}>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Logo />
@@ -104,10 +101,20 @@ const CustomAppBar = () => {
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <CustomButton
-              lable="Seller"
-              sx={{ display: { sm: "none", md: "flex" } }}
-            />
+            <Button
+              size="large"
+              style={{
+                boxShadow: "none",
+                borderRadius: "10px",
+                color: "white",
+                backgroundColor: "#ec5858",
+                paddingInline: "27px",
+                // height: "5vh",
+              }}
+            >
+              Are You Seller?
+              {/* Invite Friends */}
+            </Button>
           </Box>
         </Toolbar>
       </Container>
