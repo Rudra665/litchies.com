@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 // import OutlinedInput from "@mui/material/OutlinedInput";
+import contactUsImage from "../Image/contactUs/contactUsImage.png";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 // import PermContactCalendarRoundedIcon from "@mui/icons-material/PermContactCalendarRounded";
@@ -20,36 +21,36 @@ export default function ContactUsForm() {
   };
 
   return (
-    <Container component="main" maxWidth="lg" alignCon>
+    <Container component="main" maxWidth="lg">
       <CssBaseline />
-      <Grid
-        container
-        columnSpacing={3}
-        backgroundColor="white"
-        justifyContent="space-around"
-      >
-        <Grid item lg={6} justifyContent="left"></Grid>
-        <Grid item lg={6}>
+
+      <Grid container columnSpacing={3} justifyContent="center" marginY={25}>
+        <Grid item lg>
           <Box
             sx={{
               marginTop: 8,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              background: "transparent",
+              background: "white",
+              paddingX: "10%",
             }}
           >
-            <Typography component="h1" variant="h2">
+            <Typography component="h1" variant="h2" noWrap color="#ec5858">
               Contact Us
+            </Typography>
+            <Typography variant="h6" style={{ wordSpacing: 2, color: "grey" }}>
+              We would love to hear from You
             </Typography>
             <Box
               component="form"
               noValidate
               onSubmit={handleSubmit}
               sx={{ mt: 3 }}
+              paddingBottom={10}
             >
-              <Grid container spacing={2}>
-                <Grid item xs={12}>
+              <Grid container spacing={2} my={5}>
+                <Grid item xs={12} lg={6}>
                   <TextField
                     required
                     fullWidth
@@ -60,43 +61,68 @@ export default function ContactUsForm() {
                     sx={{ boxShadow: "1px 2px #fdeeee inset" }}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} lg={6}>
                   <TextField
                     required
                     fullWidth
                     id="email"
-                    label="Mobile"
+                    label="Email"
                     name="email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid item xs={12} lg={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="company"
+                    label="Company"
+                    name="company"
+                    autoComplete="company"
+                  />
+                </Grid>
+                <Grid item xs={12} lg={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="mobile"
+                    label="Mobile"
+                    name="Mobile"
                     autoComplete="Mobile"
-                    sx={{ boxShadow: "1px 2px #fdeeee inset" }}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
-                    id="filled-textarea"
+                    id="outlined-multiline-static"
                     label="Comments"
-                    placeholder="Placeholder"
                     multiline
-                    variant="outlined"
-                    sx={{ boxShadow: "1px 2px #fdeeee inset" }}
+                    rows={4}
+                    defaultValue="Default Value"
                   />
                 </Grid>
               </Grid>
-              <Button
-                fullWidth
-                style={{
-                  boxShadow: "none",
-                  borderRadius: "10px",
-                  color: "white",
-                  marginTop: 15,
-                  backgroundColor: "#ec5858",
-
-                  height: "4vh",
-                }}
-              >
-                Send
-              </Button>
+              {/* <Grid item>
+                <Checkbox
+                  {...label}
+                  defaultChecked
+                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
+                /><Typography></Typography>
+              </Grid> */}
+              <Grid item align="center" margin="10">
+                <Button
+                  style={{
+                    boxShadow: "none",
+                    borderRadius: "10px",
+                    color: "white",
+                    paddingInline: "10%",
+                    backgroundColor: "#ec5858",
+                    size: "large",
+                  }}
+                >
+                  Send
+                </Button>
+              </Grid>
             </Box>
           </Box>
         </Grid>
