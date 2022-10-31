@@ -10,14 +10,36 @@ import Box from "@mui/material/Box";
 // import PermContactCalendarRoundedIcon from "@mui/icons-material/PermContactCalendarRounded";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import axios from "axios";
+
 export default function ContactUsForm() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      Name: data.get(""),
-      password: data.get(""),
-    });
+  const [fields, setFields] = React.useState({
+    name: "",
+    email: "",
+    mobile: "",
+    comment: "",
+  });
+  const { name, email, mobile, comment } = fields;
+
+  const handleSubmit = () => {
+    const data = new FormData();
+    data.append("name", name);
+    data.append("email", email);
+    data.append("mobile", mobile);
+    data.append("comments", comment);
+    axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
+    axios
+      .post(
+        "https://script.google.com/macros/s/AKfycbwcd_jndZGDbTqJzL2nbE-ib0vUvkdQIbuHRgqxuAtMrc5yln8p2lHI-IfMoKghkjcP_w/exec",
+        data
+      )
+      .then(function (response) {
+        console.log(response);
+      });
+  };
+
+  const handleChangeFields = (e) => {
+    setFields({ ...fields, [e.target.name]: e.target.value });
   };
 
   return (
@@ -42,13 +64,7 @@ export default function ContactUsForm() {
             <Typography variant="h6" style={{ wordSpacing: 2, color: "grey" }}>
               We would love to hear from You
             </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 3 }}
-              paddingBottom={10}
-            >
+            <Box component="form" noValidate sx={{ mt: 3 }} paddingBottom={10}>
               <Grid container spacing={2} my={5}>
                 <Grid item xs={12} lg={6}>
                   <TextField
@@ -56,9 +72,11 @@ export default function ContactUsForm() {
                     fullWidth
                     id="Name"
                     label="Name"
-                    name="Name"
+                    name="name"
+                    value={name}
                     autoComplete="family-name"
                     sx={{ boxShadow: "1px 2px #fdeeee inset" }}
+                    onChange={handleChangeFields}
                   />
                 </Grid>
                 <Grid item xs={12} lg={6}>
@@ -68,7 +86,9 @@ export default function ContactUsForm() {
                     id="email"
                     label="Email"
                     name="email"
+                    value={email}
                     autoComplete="email"
+                    onChange={handleChangeFields}
                   />
                 </Grid>
                 <Grid item xs={12} lg={6}>
@@ -87,8 +107,10 @@ export default function ContactUsForm() {
                     fullWidth
                     id="mobile"
                     label="Mobile"
-                    name="Mobile"
+                    name="mobile"
+                    value={mobile}
                     autoComplete="Mobile"
+                    onChange={handleChangeFields}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -96,9 +118,12 @@ export default function ContactUsForm() {
                     fullWidth
                     id="outlined-multiline-static"
                     label="Comments"
+                    name="comment"
+                    value={comment}
                     multiline
                     rows={4}
                     defaultValue="Default Value"
+                    onChange={handleChangeFields}
                   />
                 </Grid>
               </Grid>
@@ -111,6 +136,7 @@ export default function ContactUsForm() {
               </Grid> */}
               <Grid item align="center" margin="10">
                 <Button
+                  onClick={handleSubmit}
                   style={{
                     boxShadow: "none",
                     borderRadius: "10px",

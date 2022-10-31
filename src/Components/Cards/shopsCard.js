@@ -1,24 +1,26 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-
-import { Avatar, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 export default function SimplePaper(props) {
   return (
     <Box
+      onClick={() => props.handleChange(props.value)}
       sx={{
         mx: 2,
         my: 3,
 
         "& > :not(style)": {
           width: 200,
+          cursor: "pointer",
           //   height: 300,
           borderRadius: "12px",
-          boxShadow: "0px 34px 68px rgba(116, 115, 128, 0.1)",
+          boxShadow: props.isShadow && "0px 14px 12px rgba(116, 115, 128, 0.1)",
         },
       }}
     >
-      <Paper elevation={2}>
+      {/* <CardActionArea> */}
+      <Paper elevation={2} border="5px solid red">
         <img src={props.imgUrl}></img>
         <Typography margin fontWeight={600}>
           {props.name}
@@ -27,6 +29,7 @@ export default function SimplePaper(props) {
           {props.name2}
         </Typography>
       </Paper>
+      {/* </CardActionArea> */}
     </Box>
   );
 }
