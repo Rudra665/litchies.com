@@ -4,9 +4,8 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { useMediaQuery } from "@mui/material/useMediaQuery";
 import { Grid } from "@mui/material";
-
+import Hidden from "@mui/material/Hidden";
 const FeaturesCard = (props) => {
   const { imgUrl, heading, footer } = props;
   // const theme = useTheme();
@@ -29,38 +28,72 @@ const FeaturesCard = (props) => {
           </Grid>
 
           <Grid item lg={10} md={9} sm={12}>
-            <Box
-              sx={{
-                mt: 2,
-                px: {
-                  sm: "none",
-                  lg: 4,
-                },
-                lign: { sm: "center" },
-              }}
-            >
-              <Typography
+            <Hidden smUp>
+              <Box
+                align="center"
                 sx={{
-                  fontWeight: "700",
-                  fontSize: "24px",
-                  fontFamily: "inter",
+                  mt: 2,
+                  px: {
+                    sm: "none",
 
-                  lineHeight: "26px",
+                    lg: 4,
+                  },
                 }}
               >
-                {heading}
-              </Typography>
+                <Typography
+                  sx={{
+                    fontWeight: "700",
+                    fontSize: "24px",
+                    fontFamily: "inter",
+                    lineHeight: "26px",
+                  }}
+                >
+                  {heading}
+                </Typography>
+                <Typography
+                  color="text.secondary"
+                  component="div"
+                  lineHeight="20px"
+                  fontSize="16px"
+                  sx={{ mt: 1 }}
+                >
+                  {footer}
+                </Typography>
+              </Box>
+            </Hidden>
+            <Hidden mdDown>
+              <Box
+                align="center"
+                sx={{
+                  mt: 2,
+                  px: {
+                    sm: "none",
 
-              <Typography
-                color="text.secondary"
-                component="div"
-                lineHeight="20px"
-                fontSize="16px"
-                sx={{ mt: 1 }}
+                    lg: 4,
+                  },
+                }}
               >
-                {footer}
-              </Typography>
-            </Box>
+                <Typography
+                  sx={{
+                    fontWeight: "700",
+                    fontSize: "24px",
+                    fontFamily: "inter",
+                    lineHeight: "26px",
+                  }}
+                >
+                  {heading}
+                </Typography>
+                <Typography
+                  color="text.secondary"
+                  component="div"
+                  lineHeight="20px"
+                  fontSize="16px"
+                  sx={{ mt: 1 }}
+                >
+                  {footer}
+                </Typography>
+              </Box>
+            </Hidden>
           </Grid>
         </Grid>
       </CardContent>

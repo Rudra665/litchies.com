@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Logo from "../Image/logo/logo.js";
+
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -11,9 +12,14 @@ import MenuItem from "@mui/material/MenuItem";
 // import CustomButton fro "../CustomButtons/customButton.js";
 import { AppBar } from "@mui/material";
 
-const CustomAppBar = () => {
-  const pages = ["Home", "Products", "Pricing", "Blog"];
-
+const CustomAppBar = (props) => {
+  const pages = ["Home", "About Us", "Shops", "Features", "Contact Us"];
+  const pages1 = [
+    {
+      name: "Home",
+      id: "home",
+    },
+  ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -112,7 +118,7 @@ const CustomAppBar = () => {
                 // height: "5vh",
               }}
             >
-              Are You Seller?
+              Are You a Seller?
               {/* Invite Friends */}
             </Button>
           </Box>

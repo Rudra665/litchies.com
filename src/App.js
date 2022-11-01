@@ -13,8 +13,12 @@ import {
 import React from "react";
 import CustomAppBar from "./Components/Toolbar/appBar";
 import "./app.css";
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ShareModal from "./Components/ShareModal/ShareModal";
+import Logo from "./Components/Image/logo/litchies_logo.png";
+import Facebook from "./Components/Image/linkButtons/facebook.svg";
+import LinkedIn from "./Components/Image/linkButtons/Linkedin.svg";
+import Twitter from "./Components/Image/linkButtons/twitter.svg";
+import Instagram from "./Components/Image/linkButtons/instagram.svg";
 import IconButton from "@mui/material/IconButton";
 import shop1 from "./Components/Image/newShopsImg/shop1.png";
 import shop2 from "./Components/Image/newShopsImg/shop2.png";
@@ -23,7 +27,7 @@ import Line from "./Components/Image/Bullets/Line.png";
 // import { createTheme } from "@mui/material/styles";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Mobile from "./Components/Image/googlePlay/Mobile.png";
+import Mobile from "./Components/Image/googlePlay/Mobile.svg";
 import gPlayButton from "./Components/Image/googlePlay/gPlayButton.png";
 import fIcon1 from "./Components/Image/FeatureIcons/fIcon1.png";
 import fIcon2 from "./Components/Image/FeatureIcons/fIcon2.png";
@@ -50,12 +54,17 @@ import { Container } from "@mui/system";
 import SimplePaper from "./Components/Cards/shopsCard";
 // import CustomButton from "./Components/CustomButtons/customButton";
 const App = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [status, setStatus] = React.useState(1);
   const [select, setSelect] = React.useState(false);
   const [shop, setShop] = React.useState("1");
   const handleChange = (event) => {
     setStatus(event.target.value);
   };
+
+  // const copy = React.string({js|©|js});
   const handleSelected = (value) => {
     setShop(value);
   };
@@ -101,6 +110,7 @@ const App = () => {
       {/* <Divider color="aliceblue" position="sticky" /> */}
 
       <div
+        id="home"
         className="header"
         style={{
           height: "90vh",
@@ -163,24 +173,31 @@ const App = () => {
                   without paying high fees.
                 </p>
                 <Box>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    style={{
-                      boxShadow: "none",
-                      borderRadius: "10px",
-                      color: "white",
-                      backgroundColor: "#ec5858",
-                      marginRight: 5,
-
-                      width: "160px",
-                      // height: "5vh",
-                    }}
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.atflabs.litchies"
+                    target={"_blank"}
+                    style={{ textDecoration: "none" }}
                   >
-                    Join Litchies
-                  </Button>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      style={{
+                        boxShadow: "none",
+                        borderRadius: "10px",
+                        color: "white",
+                        backgroundColor: "#ec5858",
+                        marginRight: 5,
+
+                        width: "160px",
+                        // height: "5vh",
+                      }}
+                    >
+                      Join Litchies
+                    </Button>
+                  </a>
                   <Button
                     size="large"
+                    onClick={handleOpen}
                     style={{
                       boxShadow: "none",
                       borderRadius: "10px",
@@ -192,6 +209,7 @@ const App = () => {
                   >
                     Invite Friends
                   </Button>
+                  <ShareModal open={open} onClose={handleClose}></ShareModal>
                 </Box>
               </Box>
             </Grid>
@@ -207,74 +225,77 @@ const App = () => {
           </Grid>
         </Container>
       </div>
-      <Container maxWidth="xl">
-        <Box alignItems="center" marginY="15vh">
-          <Grid container spacing={2} justifyContent="space-between">
-            <Grid item lg={6} xs={12}>
-              <Box align="left" sx={{ lineHeight: "3vh" }}>
-                <Typography style={{ color: "#ec5858", fontWeight: "600" }}>
-                  What's Litchies?
-                </Typography>
-                <Typography
-                  marginY={2}
-                  variant="h3"
-                  style={{ fontWeight: 600 }}
-                >
-                  Why Join to Litchies Shopping Network?
-                </Typography>
-                <Typography marginTop={5} color="grey">
-                  Shopkeepers pay high marketing fees to acquire customers. Grow
-                  your customer base with Litchies Digital Marketing solutions
-                  and also take online booking.
-                </Typography>
-                <List
-                  aria-labelledby="decorated-list-demo"
-                  sx={{ "--List-decorator-size": "32px" }}
-                >
-                  <ListItem>
-                    <ListItemDecorator>
-                      <img src={Bullet}></img>
-                    </ListItemDecorator>
-                    Grow your organic customers base.
-                  </ListItem>
-                  <ListItem>
-                    <ListItemDecorator>
-                      <img src={Bullet}></img>
-                    </ListItemDecorator>
-                    Zero budget digital marketing.
-                  </ListItem>
-                  <ListItem>
-                    <ListItemDecorator>
-                      <img src={Bullet}></img>
-                    </ListItemDecorator>
-                    Increased earnings with advanced booking.
-                  </ListItem>
-                </List>
-              </Box>
-            </Grid>
+      <div id="About">
+        <Container maxWidth="xl">
+          <Box alignItems="center" marginY="15vh">
+            <Grid container spacing={2} justifyContent="space-between">
+              <Grid item lg={6} xs={12}>
+                <Box align="left" sx={{ lineHeight: "3vh" }}>
+                  <Typography style={{ color: "#ec5858", fontWeight: "600" }}>
+                    What's Litchies?
+                  </Typography>
+                  <Typography
+                    marginY={2}
+                    variant="h3"
+                    style={{ fontWeight: 600 }}
+                  >
+                    Why Join to Litchies Shopping Network?
+                  </Typography>
+                  <Typography marginTop={5} color="grey">
+                    Shopkeepers pay high marketing fees to acquire customers.
+                    Grow your customer base with Litchies Digital Marketing
+                    solutions and also take online booking.
+                  </Typography>
+                  <List
+                    aria-labelledby="decorated-list-demo"
+                    sx={{ "--List-decorator-size": "32px" }}
+                  >
+                    <ListItem>
+                      <ListItemDecorator>
+                        <img src={Bullet}></img>
+                      </ListItemDecorator>
+                      Grow your organic customers base.
+                    </ListItem>
+                    <ListItem>
+                      <ListItemDecorator>
+                        <img src={Bullet}></img>
+                      </ListItemDecorator>
+                      Zero budget digital marketing.
+                    </ListItem>
+                    <ListItem>
+                      <ListItemDecorator>
+                        <img src={Bullet}></img>
+                      </ListItemDecorator>
+                      Increased earnings with advanced booking.
+                    </ListItem>
+                  </List>
+                </Box>
+              </Grid>
 
-            <Grid container item lg={6} xs={12} alignItems="center">
-              {/* For Web */}
-              <Hidden mdDown>{featuresImage("right", 0)}</Hidden>
-              {/* For Mobile */}
-              <Hidden smUp>{featuresImage("center", 2)}</Hidden>
-              <Grid container lg={6} sm={6} xs={12} justifyContent="">
-                <Grid item sm={12}>
-                  <Box p={1}>
-                    <img src={Video2} style={{ borderRadius: "20px" }} />
-                  </Box>
-                </Grid>
-                <Grid item sm={12}>
-                  <Box p={1}>
-                    <img src={Video3} style={{ borderRadius: "20px" }} />
-                  </Box>
+              <Grid container item lg={6} xs={12} display="flex">
+                {/* For Web */}
+                <Hidden mdDown>{featuresImage("right", 0)}</Hidden>
+                {/* For Mobile */}
+                <Hidden smUp>{featuresImage("center", 2)}</Hidden>
+
+                <Grid container lg={6} sm={6} xs={12} justifyContent="center">
+                  <Grid item sm={12}>
+                    <Box p={5}>
+                      <img src={Video2} style={{ borderRadius: "20px" }} />
+                    </Box>
+                  </Grid>
+                  <Grid item sm={12}>
+                    <Box p={1}>
+                      <img src={Video3} style={{ borderRadius: "20px" }} />
+                    </Box>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        </Box>
-      </Container>
-      <div className="second" style={{ paddingY: 4 }}>
+          </Box>
+        </Container>
+      </div>
+      <div id="Features" className="second" style={{ paddingY: 4 }}>
         <Container>
           <Box>
             <Typography
@@ -340,7 +361,7 @@ const App = () => {
           </Grid>
         </Container>
       </div>
-      <div height="60%" justifyContent="center" alignItems="center">
+      <div id="shops" height="60%" justifyContent="center" alignItems="center">
         <Container sx={{ marginY: 5, my: 20 }}>
           <Box align="center">
             <Typography color="#ec5858" fontWeight={550}>
@@ -440,45 +461,79 @@ const App = () => {
           </Box>
         </Container>
       </div>
-      <Container className="third" maxWidth="xl" justifyContent="center">
-        <Grid container spacing={4}>
-          <Grid container item lg={6} xs={12} alignItems="center">
-            <Box maxWidth="sm">
-              <Box>
-                <Typography color="#ec5858" fontWeight={550}>
-                  Get Our Aplication
-                </Typography>
-              </Box>
-              <Box>
-                <Typography variant="h4" fontWeight={"700"}>
-                  You Can Easily Find Litchies!
-                </Typography>
-              </Box>
-              <Typography color="#ec5858">
-                Download litchies app from the play store today and start a new
-                local shopping experience while sitting at home.
-              </Typography>
-              <a href="">
+      <div className="third">
+        <Container maxWidth="xl">
+          <Grid container>
+            <Grid item lg={6} xs={12}>
+              <Hidden mdDown>
+                <Box maxWidth="sm" my={20}>
+                  <Box py={1}>
+                    <Typography color="#ec5858" fontWeight={550}>
+                      Get Our Aplication
+                    </Typography>
+                  </Box>
+                  <Box py={1}>
+                    <Typography variant="h4" fontWeight={"700"}>
+                      You Can Easily Find Litchies!
+                    </Typography>
+                  </Box>
+                  <Typography color="#ec5858" py={1}>
+                    Download litchies app from the play store today and start a
+                    new local shopping experience while sitting at home.
+                  </Typography>
+                  <a href="" py={1}>
+                    <img
+                      src={gPlayButton}
+                      style={{
+                        height: "60%",
+                      }}
+                    ></img>
+                  </a>
+                </Box>
+              </Hidden>
+              <Hidden smUp>
+                <Box maxWidth="md" align="center">
+                  <Box py={1}>
+                    <Typography color="#ec5858" fontWeight={550}>
+                      Get Our Aplication
+                    </Typography>
+                  </Box>
+                  <Box py={1}>
+                    <Typography variant="h4" fontWeight={"700"}>
+                      You Can Easily Find Litchies!
+                    </Typography>
+                  </Box>
+                  <Typography color="#ec5858" py={1}>
+                    Download litchies app from the play store today and start a
+                    new local shopping experience while sitting at home.
+                  </Typography>
+                  <a href="" py={1}>
+                    <img
+                      src={gPlayButton}
+                      style={{
+                        height: "60%",
+                      }}
+                    ></img>
+                  </a>
+                </Box>
+              </Hidden>
+            </Grid>
+            <Grid item lg={6} xs={12}>
+              <Hidden mdDown>
                 <img
-                  src={gPlayButton}
-                  style={{
-                    height: "60%",
-                  }}
-                ></img>
-              </a>
-            </Box>
+                  src={Mobile}
+                  alt="comm"
+                  style={{ height: "100%", width: "100%" }}
+                />
+              </Hidden>
+              <Hidden smUp>
+                <img src={Mobile} alt="comm" style={{ display: "none" }} />
+              </Hidden>
+            </Grid>
           </Grid>
-          <Grid item lg={6} xs={12}>
-            <Hidden mdDown>
-              <img src={Mobile} alt="comm" style={{ height: "69.5vh" }} />
-            </Hidden>
-            <Hidden smUp>
-              <img src={Mobile} alt="comm" style={{ display: "none" }} />
-            </Hidden>
-          </Grid>
-        </Grid>
-      </Container>
-      <Container>
+        </Container>
+      </div>
+      {/* <Container>
         <Box marginY={20}>
           <Typography variant="h4" align="center" pb={5}>
             New Shops Joining Everyday
@@ -498,7 +553,7 @@ const App = () => {
                     <Typography fontWeight="600">
                       It Does Not Matter Hows Slowly go as Long
                     </Typography>
-                    <a href="#">
+                    <a href="#" style={{ textDecoration: "none" }}>
                       <Typography my={3} fontFamily="inter" color="grey">
                         Continue Reading
                       </Typography>
@@ -518,7 +573,7 @@ const App = () => {
                     <Typography fontWeight="600">
                       Netbook Network Added New Photo Filter
                     </Typography>
-                    <a href="#">
+                    <a href="#" textDecoration="none">
                       <Typography my={3} color="grey" fontFamily="inter">
                         Continue Reading
                       </Typography>
@@ -527,7 +582,7 @@ const App = () => {
                 </Box>
               </Grid>
               <Grid item lg={4} sm={12}>
-                <Box sx={{ border: "solid red" }}>
+                <Box>
                   <img src={shop3}></img>
                 </Box>
                 <Box my={2} display="flex">
@@ -538,7 +593,7 @@ const App = () => {
                     <Typography fontWeight="600">
                       We Optimised Netbooks Better Navigation
                     </Typography>
-                    <a href="#">
+                    <a href="#" textDecoration="none">
                       <Typography my={3} fontFamily="inter" color="grey">
                         Continue Reading
                       </Typography>
@@ -549,92 +604,105 @@ const App = () => {
             </Grid>
           </Box>
         </Box>
-      </Container>
-
-      <Box>
+      </Container> */}
+      <div id="Contact">
         <ContactUsForm />
-      </Box>
+      </div>
       <div className="footer">
         <Container maxWidth="xl">
-          <Grid container display="flex">
-            <Grid item lg={6} xs={12}>
-              <Box display="flex" justifyContent="left">
-                <Box alignItems="center">
-                  <Box my={4} marginTop={10}>
-                    <a href="#" style={{ textDecoration: "none" }}>
-                      <Typography color="white">Home</Typography>
-                    </a>
+          <Grid container alignItems="center" justifyContent="center">
+            <Hidden mdDown>
+              <Grid item lg={3} xs={12} align="left" mt={2}>
+                <img src={Logo} width="30%" height="100%"></img>
+              </Grid>
+            </Hidden>
+            <Hidden smUp>
+              <Grid item lg={4} xs={12} align="center" mt={2}>
+                <img src={Logo} width="40%" height="100%"></img>
+              </Grid>
+            </Hidden>
+            <Grid item container lg={4} xs={12} justifyContent="end" p={2}>
+              <Hidden mdUp>
+                <Grid item lg={12} xs={12} align="center">
+                  <Typography variant="h6" color="white">
+                    Contact Us
+                  </Typography>
+                </Grid>
+                <Grid item lg={12} xs={12}>
+                  <Box>
+                    <Typography align="center" color="white">
+                      Mobile:
+                    </Typography>
+                  </Box>
+                  <Box align="center">
+                    <Typography align="center" color="white">
+                      Email:
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Hidden>
+              <Hidden mdDown>
+                <Grid item lg={7} xs={12}>
+                  <Typography variant="h6" color="white">
+                    Contact Us
+                  </Typography>
+                </Grid>
+                <Grid item lg={7} xs={7}>
+                  <Box>
+                    <Typography color="white">Mobile:</Typography>
                   </Box>
                   <Box>
-                    <Box my={2}>
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        <Typography color="white">Home</Typography>
-                      </a>
-                    </Box>
-                    <Box my={2}>
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        <Typography color="white">Community</Typography>
-                      </a>
-                    </Box>
-                    <Box my={2}>
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        <Typography color="white">Events</Typography>
-                      </a>
-                    </Box>
-                    <Box my={2}>
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        <Typography color="white">Contact</Typography>
-                      </a>
-                    </Box>
+                    <Typography color="white">Email:</Typography>
                   </Box>
-                </Box>
-                <Box paddingLeft={10}>
-                  <Box my={4} marginTop={10}>
-                    <a href="#" style={{ textDecoration: "none" }}>
-                      <Typography color="white">Main Links</Typography>
-                    </a>
-                  </Box>
-                  <Box>
-                    <Box my={2}>
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        <Typography color="white">Members</Typography>
-                      </a>
-                    </Box>
-                    <Box my={2}>
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        <Typography color="white">Activity</Typography>
-                      </a>
-                    </Box>
-                    <Box my={2}>
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        <Typography color="white">Groups</Typography>
-                      </a>
-                    </Box>
-                    <Box my={2}>
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        <Typography color="white">Private Group</Typography>
-                      </a>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
+                </Grid>
+              </Hidden>
             </Grid>
-            <Grid item lg={6} xs={12}>
-              <IconButton>
-                <FacebookRoundedIcon />
-              </IconButton>
-              <IconButton>
-                <FacebookRoundedIcon />
-              </IconButton>
-              <IconButton>
-                <FacebookRoundedIcon />
-              </IconButton>
-              <IconButton>
-                <LinkedInIcon />
-              </IconButton>
-            </Grid>
+            <Hidden smUp>
+              <Grid item lg={3} xs={12} align="center" m={2}>
+                <IconButton>
+                  <img src={Facebook}></img>
+                </IconButton>
+                <IconButton>
+                  <img src={Instagram}></img>
+                </IconButton>
+                <IconButton>
+                  <img src={Twitter}></img>
+                </IconButton>
+                <IconButton>
+                  <img src={LinkedIn}></img>
+                </IconButton>
+              </Grid>
+            </Hidden>
+            <Hidden mdDown>
+              <Grid item lg={3} xs={12} align="end" m={2}>
+                <IconButton>
+                  <img src={Facebook}></img>
+                </IconButton>
+                <IconButton>
+                  <img src={Instagram}></img>
+                </IconButton>
+                <IconButton>
+                  <img src={Twitter}></img>
+                </IconButton>
+                <IconButton>
+                  <img src={LinkedIn}></img>
+                </IconButton>
+              </Grid>
+            </Hidden>
           </Grid>
         </Container>
+      </div>
+      <div
+        style={{
+          width: "100%",
+          textAlign: "center",
+          backgroundColor: "#ec5858",
+          padding: 2,
+        }}
+      >
+        <Typography color="#ffff">
+          copyright <span>&copy;</span> 2022
+        </Typography>
       </div>
     </>
   );
