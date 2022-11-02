@@ -16,11 +16,12 @@ export default function SimplePaper(props) {
           //   height: 300,
           borderRadius: "12px",
           boxShadow: props.isShadow && "0px 14px 12px rgba(116, 115, 128, 0.1)",
+          border: "2px solid rgba(243, 243, 243, 0.5)",
         },
       }}
     >
       {/* <CardActionArea> */}
-      <Paper elevation={2} border="5px solid red">
+      <Paper elevation={0}>
         <img src={props.imgUrl}></img>
         <Typography margin fontWeight={600}>
           {props.name}

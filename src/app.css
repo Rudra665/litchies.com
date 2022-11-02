@@ -4,25 +4,16 @@
 ::-webkit-scrollbar {
    display: none;
 }
-.header{
-   background:  linear-gradient(340.76deg, #ec5858 -90.24%, #ffff 58.85%);
-}
+
 .form{
    background: #41295a;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to bottom, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to bottom, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-.second{background: rgb(255, 255, 255);
-   background: linear-gradient(0deg, rgba(255, 255, 255, 0.894) 5%, rgb(255, 243, 243) 30%, rgba(255, 253, 253, 0.908) 95%);
-}
 
-.third{
-   background:rgba(255,228,228,1);
-   width:100%;
-   display: flex; 
-   justify-content: center;
-}
+
+
 .Active{
   background-color: #ec5858;
   color: aliceblue;

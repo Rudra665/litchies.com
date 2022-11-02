@@ -61,9 +61,10 @@ const FeaturesCard = (props) => {
                 </Typography>
               </Box>
             </Hidden>
+
             <Hidden mdDown>
               <Box
-                align="center"
+                align="left"
                 sx={{
                   mt: 2,
                   px: {
