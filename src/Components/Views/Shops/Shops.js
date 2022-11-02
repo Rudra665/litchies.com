@@ -54,7 +54,7 @@ const Shops = () => {
       height="60%"
       justifyContent="center"
       alignItems="center"
-      style={{ paddingBlock: "80px" }}
+      style={{ paddingBlock: "1vh" }}
     >
       <Container sx={{ marginY: 5, my: 20 }}>
         <Box align="center">

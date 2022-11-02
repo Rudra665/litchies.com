@@ -24,7 +24,10 @@ const featuresImage = (justifyContent, pl) => {
 };
 const About = () => {
   return (
-    <div id="About">
+    <div
+      id="About"
+      style={{ height: "80vh", width: "100%", paddingBlock: "12px" }}
+    >
       <Container maxWidth="xl">
         <Box alignItems="center" marginY="15vh">
           <Grid container spacing={2} justifyContent="space-between">

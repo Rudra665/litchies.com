@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Logo from "../Image/logo/logo.js";
-// import { useRef, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -16,8 +15,8 @@ const CustomAppBar = (props) => {
   const pages = [
     { id: "1", name: "Home", to: "#home" },
     { id: "1", name: "About Us", to: "#About" },
-    { id: "1", name: "Shop", to: "#Shop" },
     { id: "1", name: "Features", to: "#Features" },
+    { id: "1", name: "Shop", to: "#Shop" },
     { id: "1", name: "Contact Us", to: "#Contact" },
   ];
   const [skey, setSkey] = React.useState(false);
@@ -33,9 +32,7 @@ const CustomAppBar = (props) => {
 
   return (
     <BrowserRouter>
-      <AppBar
-        sx={{ background: "white", boxShadow: "none", position: "sticky" }}
-      >
+      <AppBar position="sticky" sx={{ background: "white", boxShadow: "none" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -85,12 +82,17 @@ const CustomAppBar = (props) => {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem
-                    key={page.id}
-                    onClick={() => handleCloseNavMenu(page)}
+                  <Link
+                    to={page.to}
+                    style={{ textDecoration: "none", color: "grey" }}
                   >
-                    <Typography textAlign="center">{page.name}</Typography>
-                  </MenuItem>
+                    <MenuItem
+                      key={page.id}
+                      onClick={() => handleCloseNavMenu(page)}
+                    >
+                      <Typography textAlign="center">{page.name}</Typography>
+                    </MenuItem>
+                  </Link>
                 ))}
               </Menu>
             </Box>
@@ -102,7 +104,7 @@ const CustomAppBar = (props) => {
               }}
             >
               {pages.map((page) => (
-                <Link to={page.to} smooth>
+                <Link to={page.to} smooth style={{ textDecoration: "none" }}>
                   <Button
                     key={page.id}
                     onClick={handleCloseNavMenu}
@@ -119,8 +121,13 @@ const CustomAppBar = (props) => {
               ))}
             </Box>
 
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Link to="#Contact">
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                textDecoration: "none",
+              }}
+            >
+              <Link to="#Contact" style={{ textDecoration: "none" }}>
                 <Button
                   size="large"
                   style={{
@@ -129,6 +136,7 @@ const CustomAppBar = (props) => {
                     color: "white",
                     backgroundColor: "#ec5858",
                     paddingInline: "27px",
+                    textDecoration: "none",
                     // height: "5vh",
                   }}
                 >

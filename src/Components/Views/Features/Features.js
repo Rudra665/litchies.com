@@ -10,7 +10,11 @@ import fIcon5 from "../../Image/FeatureIcons/fIcon5.png";
 import fIcon6 from "../../Image/FeatureIcons/fIcon6.png";
 const Features = () => {
   return (
-    <div id="Features" className="second" style={{ paddingBlock: "80px" }}>
+    <div
+      id="Features"
+      className="second"
+      style={{ marginBlockStart: "24vh", paddingBlock: "10vh" }}
+    >
       <Container>
         <Box>
           <Typography

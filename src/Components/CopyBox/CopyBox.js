@@ -2,7 +2,7 @@ import * as React from "react";
 import { useInput } from "@mui/base";
 import { styled } from "@mui/system";
 import { unstable_useForkRef as useForkRef } from "@mui/utils";
-import { Button } from "@mui/joy";
+import Button from "@mui/material/Button";
 
 const blue = {
   100: "#DAECFF",
@@ -68,5 +68,31 @@ const CustomInput = React.forwardRef(function CustomInput(props, ref) {
 });
 
 export default function UseInput() {
-  return <CustomInput aria-label="Demo input" value=""></CustomInput>;
+  const [copySuccess, setCopySuccess] = React.useState("");
+  const textAreaRef = React.useRef(null);
+
+  function copyToClipboard(e) {
+    textAreaRef.current.select();
+    document.execCommand("copy");
+    e.target.focus();
+    setCopySuccess("Copied!");
+    alert(`Copied to Clipboard`);
+  }
+
+  return (
+    <>
+      <CustomInput
+        ref={textAreaRef}
+        aria-label="Demo input"
+        value="https://play.google.com/store/apps/details?id=com.atflabs.litchies"
+      />
+      <Button
+        variant="contained"
+        sx={{ margin: 1, backgroundColor: "#ec5858" }}
+        onClick={copyToClipboard}
+      >
+        Copy
+      </Button>
+    </>
+  );
 }

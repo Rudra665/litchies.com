@@ -3,10 +3,14 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
+// import { validEmail, validMobile } from "../Validation/Validation.js";
 // import OutlinedInput from "@mui/material/OutlinedInput";
 import contactUsImage from "../Image/contactUs/contactUsImage.png";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import validator from "validator";
+import isNumeric from "validator/lib/isNumeric";
+
 // import PermContactCalendarRoundedIcon from "@mui/icons-material/PermContactCalendarRounded";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -23,9 +27,8 @@ export default function ContactUsForm() {
     comment: "",
   });
   const { name, email, mobile, comment } = fields;
-  const [isEmail, setIsEmail] = React.useState(false);
-  const [isMobile, setIsMobile] = React.useState(false);
-
+  const [error, setError] = React.useState(false);
+  const [error2, setError2] = React.useState(false);
   const handleSubmit = () => {
     setOpen(true);
     const data = new FormData();
@@ -43,28 +46,38 @@ export default function ContactUsForm() {
         console.log(response);
       });
   };
-
+  const emailValidation = () => {
+    if (validator.isEmail(fields.email) && !validator.isEmpty(fields.email)) {
+      return setError(false);
+    } else {
+      return true;
+    }
+  };
+  const mobileValidation = () => {
+    return false
+    if (
+      validator.isNumeric(fields.mobile)<=10 &&
+      !validator.isEmpty(fields.mobile)
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
   const handleChangeFields = (e) => {
     setFields({ ...fields, [e.target.name]: e.target.value });
-    console.log(email);
-    if ("/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/".match(fields.email)) {
-      setIsEmail(false);
-    }
+    emailValidation();
+    mobileValidation();
 
-    if (
-      "/^(?:(?:+|0{0,2})91(s*[-]s*)?|[0]?)?[6789]d{9}$/".match(fields.mobile)
-    ) {
-      setIsMobile(false);
-    }
   };
 
   return (
     <>
-      <div id="Contact">
+      <div id="Contact" style={{ marginBlockEnd: "4vh" }}>
         <Container
           component="main"
           maxWidth="lg"
-          style={{ backgroundImage: "url(${Contact})" }}
+          style={{ paddingBlockStart: "2vh" }}
         >
           <CssBaseline />
 
@@ -119,7 +132,7 @@ export default function ContactUsForm() {
                         id="email"
                         label="Email"
                         name="email"
-                        error={!isEmail ? false : true}
+                        error={!emailValidation}
                         value={email}
                         autoComplete="email"
                         onChange={handleChangeFields}
@@ -142,9 +155,9 @@ export default function ContactUsForm() {
                         id="mobile"
                         label="Mobile"
                         name="mobile"
-                        error={!isMobile ? false : true}
+                        error={!mobileValidation}
                         value={mobile}
-                        autoComplete="Mobile"
+                        autoComplete="mobile"
                         onChange={handleChangeFields}
                       />
                     </Grid>

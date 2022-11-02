@@ -14,7 +14,7 @@ const Home = () => {
       id="home"
       className="header"
       style={{
-        height: "90vh",
+        height: "100vh",
         width: "100%",
       }}
     >
