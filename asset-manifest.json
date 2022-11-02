@@ -1,16 +1,12 @@
 {
   "files": {
-    "main.css": "/Litchies-Website/static/css/main.57701b25.css",
-    "main.js": "/Litchies-Website/static/js/main.d432857e.js",
+    "main.css": "/Litchies-Website/static/css/main.f4a7130c.css",
+    "main.js": "/Litchies-Website/static/js/main.4beda1b1.js",
     "static/media/contactUsImage.png": "/Litchies-Website/static/media/contactUsImage.b790adca6ef677b42ac5.png",
     "static/media/Contact.jpg": "/Litchies-Website/static/media/Contact.430a31c644c28163881d.jpg",
-    "static/media/shop2.png": "/Litchies-Website/static/media/shop2.51c3da22e2bb5f15ab24.png",
-    "static/media/shop1.png": "/Litchies-Website/static/media/shop1.aeb60fe0f174d4cbaba4.png",
     "static/media/vedio1.png": "/Litchies-Website/static/media/vedio1.f7d7c79fd9d26d8527d4.png",
-    "static/media/shop3.png": "/Litchies-Website/static/media/shop3.e16836162b95974ae19d.png",
     "static/media/vedio2.png": "/Litchies-Website/static/media/vedio2.69312f1d342e6b0ee402.png",
     "static/media/vedio3.png": "/Litchies-Website/static/media/vedio3.fd2918d6646843dd8934.png",
-    "static/media/Mobile.svg": "/Litchies-Website/static/media/Mobile.f6090428f5dde06b1de51ff377b311ad.svg",
     "static/media/image.png": "/Litchies-Website/static/media/image.af8fe6bfde9f22ba907b.png",
     "static/media/Abstrack.png": "/Litchies-Website/static/media/Abstrack.a218f10741113578b6e5.png",
     "static/media/Abstrack2.png": "/Litchies-Website/static/media/Abstrack2.63d016f377dc1ada79dd.png",
@@ -18,22 +14,21 @@
     "static/media/Abstrack3.png": "/Litchies-Website/static/media/Abstrack3.f50acda9964ce0e9bf62.png",
     "static/media/fIcon2.png": "/Litchies-Website/static/media/fIcon2.c046fbeb4f8ca5150342.png",
     "static/media/fIcon5.png": "/Litchies-Website/static/media/fIcon5.2595d4f78e344210bb18.png",
-    "static/media/gPlayButton.png": "/Litchies-Website/static/media/gPlayButton.35aa3f102050ba6ebd64.png",
     "static/media/Abstrack4.png": "/Litchies-Website/static/media/Abstrack4.1aa24a92bc2fa34ad1ad.png",
     "static/media/fIcon6.png": "/Litchies-Website/static/media/fIcon6.3f2a1e4032ad6e7ab330.png",
     "static/media/fIcon4.png": "/Litchies-Website/static/media/fIcon4.5b49382fa3a0a4b55950.png",
     "static/media/fIcon3.png": "/Litchies-Website/static/media/fIcon3.b9f52ded112049800fe5.png",
     "static/media/fIcon1.png": "/Litchies-Website/static/media/fIcon1.a5f0b6064084dd327d71.png",
-    "static/media/instagram.svg": "/Litchies-Website/static/media/instagram.b34556689d95307001e45cc719308594.svg",
-    "static/media/twitter.svg": "/Litchies-Website/static/media/twitter.edb6875c2b0325a1b6aa6de1b3e4e73a.svg",
+    "static/media/instagram.svg": "/Litchies-Website/static/media/instagram.1310e5f85759c33c09fa169d5924a307.svg",
+    "static/media/twitter.svg": "/Litchies-Website/static/media/twitter.eff4bf8c030200cab91704b4e64262d9.svg",
     "index.html": "/Litchies-Website/index.html",
-    "static/media/Linkedin.svg": "/Litchies-Website/static/media/Linkedin.cb84ca84b59b0ae6f901a894b18e25a8.svg",
-    "static/media/facebook.svg": "/Litchies-Website/static/media/facebook.ba9fb870941794ee203dcae66a50b80f.svg",
-    "main.57701b25.css.map": "/Litchies-Website/static/css/main.57701b25.css.map",
-    "main.d432857e.js.map": "/Litchies-Website/static/js/main.d432857e.js.map"
+    "static/media/Linkedin.svg": "/Litchies-Website/static/media/Linkedin.e2ca84e565cc23c23aa80834aef0d2cb.svg",
+    "static/media/facebook.svg": "/Litchies-Website/static/media/facebook.368364923bd10002628952de0b8ee0ad.svg",
+    "main.f4a7130c.css.map": "/Litchies-Website/static/css/main.f4a7130c.css.map",
+    "main.4beda1b1.js.map": "/Litchies-Website/static/js/main.4beda1b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.57701b25.css",
-    "static/js/main.d432857e.js"
+    "static/css/main.f4a7130c.css",
+    "static/js/main.4beda1b1.js"
   ]
 }
