@@ -13,7 +13,7 @@ const Features = () => {
     <div
       id="Features"
       className="second"
-      style={{ marginBlockStart: "24vh", paddingBlock: "10vh" }}
+      
     >
       <Container>
         <Box>

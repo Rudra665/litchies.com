@@ -49,14 +49,8 @@ const Shops = () => {
   };
 
   return (
-    <div
-      id="Shop"
-      height="60%"
-      justifyContent="center"
-      alignItems="center"
-      style={{ paddingBlock: "1vh" }}
-    >
-      <Container sx={{ marginY: 5, my: 20 }}>
+    <div id="Shop" height="60%" justifyContent="center" alignItems="center">
+      <Container sx={{ marginY: 5 }}>
         <Box align="center">
           <Typography color="#ec5858" fontWeight={550}>
             Valuable Shops

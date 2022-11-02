@@ -19,15 +19,15 @@ const CustomAppBar = (props) => {
     { id: "1", name: "Shop", to: "#Shop" },
     { id: "1", name: "Contact Us", to: "#Contact" },
   ];
-  const [skey, setSkey] = React.useState(false);
-  const [anchorElNav, setAnchorElNav] = React.useState(1);
+  
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleCloseNavMenu = (event) => {
-    setAnchorElNav(event.target.key);
-    setSkey(true);
+  const handleCloseNavMenu = (null) => {
+    setAnchorElNav(null);
+    
   };
 
   return (

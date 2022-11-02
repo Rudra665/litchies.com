@@ -1,18 +1,11 @@
-
 import React from "react";
 import CustomAppBar from "./Components/Toolbar/appBar";
 import "./app.css";
 import Contact from "./Components/form/Contact.jpg";
-
-import shop1 from "./Components/Image/newShopsImg/shop1.png";
-import shop2 from "./Components/Image/newShopsImg/shop2.png";
-import shop3 from "./Components/Image/newShopsImg/shop3.png";
-import Line from "./Components/Image/Bullets/Line.png";
 import Home from "./Components/Views/Home/Home";
 import Shops from "./Components/Views/Shops/Shops";
 import Features from "./Components/Views/Features/Features";
 import ContactUsForm from "./Components/form/ContactUsForm";
-
 import About from "./Components/Views/About/About";
 import Footer from "./Components/Views/Footer/Footer";
 
@@ -27,13 +20,21 @@ const App = () => {
   const name2 = "";
   return (
     <>
-      <CustomAppBar />
-      <Home />
-      <About />
-      <Features />
-
-      <Shops />
-
+      <div>
+        <CustomAppBar />
+      </div>
+      <div>
+        <Home />
+      </div>
+      <div>
+        <About />
+      </div>
+      <div>
+        <Features />
+      </div>
+      <div>
+        <Shops />
+      </div>
       {/* <Container>
         <Box marginY={20}>
           <Typography variant="h4" align="center" pb={5}>
@@ -109,7 +110,9 @@ const App = () => {
       <div style={{ background: { Contact } }}>
         <ContactUsForm />
       </div>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </>
   );
 };

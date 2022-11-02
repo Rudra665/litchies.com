@@ -2,7 +2,7 @@ import React from "react";
 
 const JoinUsPage = () => {
   return (
-    <div className="third" style={{ paddingBlock: "80px" }}>
+    <div className="third">
       <Container maxWidth="xl">
         <Grid container>
           <Grid item lg={6} xs={12}>
