@@ -36,21 +36,6 @@ const Home = () => {
             sx={{ mt: 4, justifyContent: "center" }}
           >
             <Box alignItems={"center"}>
-              <Button
-                variant="contained"
-                style={{
-                  borderRadius: "10px",
-                  boxShadow: "none",
-                  color: "#ec5858",
-                  // borderColor: "",
-                  backgroundColor: "#Fdeeee",
-                  // borderColor: "#ec5858",
-                  width: "180px",
-                  height: "4vh",
-                }}
-              >
-                Litchies Shopping
-              </Button>
               <h1
                 style={{
                   fontFamily: "Inter",

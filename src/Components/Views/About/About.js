@@ -14,9 +14,11 @@ const featuresImage = (justifyContent, pl) => {
       </Box>
       <Grid container lg={6} sm={6} xs={12} justifyContent="center">
         <Grid item sm={12}>
-          <Box>
-            <img src={Video2} style={{ borderRadius: "20px" }} />
-          </Box>
+          <Hidden>
+            <Box>
+              <img src={Video2} style={{ borderRadius: "20px" }} />
+            </Box>
+          </Hidden>
         </Grid>
         <Grid item sm={12}>
           <Box>

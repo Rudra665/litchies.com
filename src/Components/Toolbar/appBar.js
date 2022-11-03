@@ -74,11 +74,12 @@ const CustomAppBar = (props) => {
               </IconButton>
               <SwipeableDrawer
                 elevation={16}
+                onClose={handleCloseNavMenu}
                 sx={{
                   flexShrink: 0,
                   "& .MuiDrawer-paper": {
                     width: "100%",
-                    height: "33%",
+                    height: "35%",
                     backgroundColor: "Black",
                     align: "center",
                   },

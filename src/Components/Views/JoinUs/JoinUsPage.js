@@ -3,6 +3,7 @@ import React from "react";
 import "./joinUs.css";
 import gPlayButton from "../../Image/googlePlay/gPlayButton.png";
 import Mobile from "../../Image/googlePlay/Mobile.svg";
+import { Link } from "react-router-dom";
 const JoinUsPage = () => {
   return (
     <div className="third">
@@ -53,7 +54,6 @@ const JoinUsPage = () => {
                 </Typography>
                 <a
                   href="https://play.google.com/store/apps/details?id=com.atflabs.litchies"
-                  target="blank"
                   py={1}
                 >
                   <img
@@ -61,7 +61,7 @@ const JoinUsPage = () => {
                     style={{
                       height: "60%",
                     }}
-                  ></img>
+                  />
                 </a>
               </Box>
             </Hidden>

@@ -10,8 +10,6 @@ import { Box, Container } from "@mui/system";
 import { styled } from "@mui/material/styles";
 import React from "react";
 import SimplePaper from "../../Cards/shopsCard";
-import { type } from "@testing-library/user-event/dist/type";
-import { RecentActors } from "@mui/icons-material";
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   "& .MuiToggleButtonGroup-grouped": {
@@ -36,7 +34,6 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 const Shops = () => {
   const [status, setStatus] = React.useState(["Recent"]);
   const [Data, setData] = React.useState(data);
-
   const [select, setSelect] = React.useState(false);
   const [shop, setShop] = React.useState(1);
 
@@ -48,13 +45,10 @@ const Shops = () => {
   const filter = () => {
     setData(() => filterData);
     console.log(status);
-    const filterData = data.filter((item) => item.type === status);
+    const filterData = data.filter((item) => item.type == status);
     console.log(filterData);
   };
-  const handleSelected = (value) => {
-    setShop(value);
-  };
-  const selected = (event) => {
+  const handleSelected = (event) => {
     setShop(event.target.value);
     setSelect(true);
   };
@@ -78,17 +72,15 @@ const Shops = () => {
             <Paper
               sx={{
                 backgroundColor: "rgba(255,228,228,1)",
-                borderRadius: 3,
+                borderRadius: 1,
                 boxShadow: "none",
               }}
             >
               <StyledToggleButtonGroup
                 size="medium"
                 fullWidth
+                onClick={handleChange}
                 value={status}
-                exclusive
-                onChange={handleChange}
-                onClick={filter}
                 aria-label="text alignment"
               >
                 <ToggleButton
@@ -108,7 +100,7 @@ const Shops = () => {
                   value="Active"
                   sx={{ border: "none", mx: 2, borderRadius: 3 }}
                 >
-                  Popular
+                  Active
                 </ToggleButton>
               </StyledToggleButtonGroup>
             </Paper>
@@ -118,7 +110,6 @@ const Shops = () => {
             marginY={5}
             exclusive
             label="shops"
-            onChange={handleChange}
             sx={{
               justifyContent: { lg: "center", sm: "flex" },
               overflowX: { lg: "hidden", xs: "scroll" },
@@ -127,8 +118,8 @@ const Shops = () => {
           >
             {Data.map((D) => (
               <SimplePaper
-                isShadow={shop == "1"}
-                value={D.type}
+                isShadow={shop}
+                value={D.id}
                 imgUrl={D.img}
                 name={D.shop_name}
                 name2={D.name}

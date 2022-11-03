@@ -65,7 +65,13 @@ export default function ContactUsForm(e) {
       ? setError2(false)
       : setError2(true);
   };
-
+  const Validation = () => {
+    if (validator.isEmpty(fields)) {
+      return false;
+    } else {
+      return true;
+    }
+  };
   const handleChangeFields = (e) => {
     setFields({ ...fields, [e.target.name]: e.target.value });
     emailValidation();
@@ -176,13 +182,7 @@ export default function ContactUsForm(e) {
                       />
                     </Grid>
                   </Grid>
-                  {/* <Grid item>
-                <Checkbox
-                  {...label}
-                  defaultChecked
-                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
-                /><Typography></Typography>
-              </Grid> */}
+                  
                   <Grid item align="center" margin="10">
                     <Button
                       onClick={handleSubmit}
