@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Litchies-Website/static/css/main.8f3dfde9.css",
-    "main.js": "/Litchies-Website/static/js/main.af083e15.js",
+    "main.js": "/Litchies-Website/static/js/main.b1c893d9.js",
     "static/media/contactUsImage.png": "/Litchies-Website/static/media/contactUsImage.b790adca6ef677b42ac5.png",
     "static/media/Contact.jpg": "/Litchies-Website/static/media/Contact.430a31c644c28163881d.jpg",
     "static/media/vedio1.png": "/Litchies-Website/static/media/vedio1.f7d7c79fd9d26d8527d4.png",
@@ -28,10 +28,10 @@
     "static/media/Linkedin.svg": "/Litchies-Website/static/media/Linkedin.cb84ca84b59b0ae6f901a894b18e25a8.svg",
     "static/media/facebook.svg": "/Litchies-Website/static/media/facebook.ba9fb870941794ee203dcae66a50b80f.svg",
     "main.8f3dfde9.css.map": "/Litchies-Website/static/css/main.8f3dfde9.css.map",
-    "main.af083e15.js.map": "/Litchies-Website/static/js/main.af083e15.js.map"
+    "main.b1c893d9.js.map": "/Litchies-Website/static/js/main.b1c893d9.js.map"
   },
   "entrypoints": [
     "static/css/main.8f3dfde9.css",
-    "static/js/main.af083e15.js"
+    "static/js/main.b1c893d9.js"
   ]
 }
