@@ -2,6 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import FeaturesCard from "../../Cards/Cards";
+import "./Features.css";
 import fIcon1 from "../../Image/FeatureIcons/fIcon1.png";
 import fIcon2 from "../../Image/FeatureIcons/fIcon2.png";
 import fIcon3 from "../../Image/FeatureIcons/fIcon3.png";
@@ -10,11 +11,7 @@ import fIcon5 from "../../Image/FeatureIcons/fIcon5.png";
 import fIcon6 from "../../Image/FeatureIcons/fIcon6.png";
 const Features = () => {
   return (
-    <div
-      id="Features"
-      className="second"
-      
-    >
+    <div id="Features" className="second">
       <Container>
         <Box>
           <Typography

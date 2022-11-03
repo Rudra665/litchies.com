@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Logo from "../Image/logo/logo.js";
+import { styled, useTheme } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -9,8 +10,17 @@ import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { AppBar } from "@mui/material";
+import {
+  AppBar,
+  CssBaseline,
+  Divider,
+  List,
+  ListItem,
+  ListItemButton,
+  SwipeableDrawer,
+} from "@mui/material";
 import { HashLink as Link } from "react-router-hash-link";
+
 const CustomAppBar = (props) => {
   const pages = [
     { id: "1", name: "Home", to: "#home" },
@@ -19,20 +29,19 @@ const CustomAppBar = (props) => {
     { id: "1", name: "Shop", to: "#Shop" },
     { id: "1", name: "Contact Us", to: "#Contact" },
   ];
-  
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleCloseNavMenu = (null) => {
+  const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-    
   };
 
   return (
     <BrowserRouter>
-      <AppBar position="sticky" sx={{ background: "white", boxShadow: "none" }}>
+      <AppBar position="fixed" sx={{ background: "white", boxShadow: "none" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -47,6 +56,7 @@ const CustomAppBar = (props) => {
                 display: { xs: "flex", md: "none", justifyContent: "right" },
               }}
             >
+              <CssBaseline />
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -62,39 +72,39 @@ const CustomAppBar = (props) => {
                   style={{ width: "20px", height: "20px" }}
                 />
               </IconButton>
-
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
+              <SwipeableDrawer
+                elevation={16}
                 sx={{
-                  display: { xs: "block", md: "none" },
+                  flexShrink: 0,
+                  "& .MuiDrawer-paper": {
+                    width: "100%",
+                    height: "33%",
+                    backgroundColor: "Black",
+                    align: "center",
+                  },
                 }}
+                anchor="Top"
+                open={anchorElNav}
               >
-                {pages.map((page) => (
-                  <Link
-                    to={page.to}
-                    style={{ textDecoration: "none", color: "grey" }}
-                  >
-                    <MenuItem
-                      key={page.id}
-                      onClick={() => handleCloseNavMenu(page)}
+                <List>
+                  {pages.map((page) => (
+                    <Link
+                      to={page.to}
+                      style={{ textDecoration: "none", color: "white" }}
                     >
-                      <Typography textAlign="center">{page.name}</Typography>
-                    </MenuItem>
-                  </Link>
-                ))}
-              </Menu>
+                      <ListItem
+                        key={page.id}
+                        align="center"
+                        onClick={() => handleCloseNavMenu(page)}
+                      >
+                        <ListItemButton sx={{ justifyContent: "center" }}>
+                          <Typography>{page.name}</Typography>
+                        </ListItemButton>
+                      </ListItem>
+                    </Link>
+                  ))}
+                </List>
+              </SwipeableDrawer>
             </Box>
             <Box
               sx={{

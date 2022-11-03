@@ -4,14 +4,14 @@ import {
   ToggleButtonGroup,
   Typography,
 } from "@mui/material";
+import "./Shops.css";
+import data from "./data";
 import { Box, Container } from "@mui/system";
 import { styled } from "@mui/material/styles";
 import React from "react";
 import SimplePaper from "../../Cards/shopsCard";
-import Abstrack from "../../Image/Shops/Abstrack.png";
-import Abstrack2 from "../../Image/Shops/Abstrack2.png";
-import Abstrack3 from "../../Image/Shops/Abstrack3.png";
-import Abstrack4 from "../../Image/Shops/Abstrack4.png";
+import { type } from "@testing-library/user-event/dist/type";
+import { RecentActors } from "@mui/icons-material";
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   "& .MuiToggleButtonGroup-grouped": {
@@ -34,11 +34,22 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 }));
 
 const Shops = () => {
-  const [status, setStatus] = React.useState(1);
+  const [status, setStatus] = React.useState(["Recent"]);
+  const [Data, setData] = React.useState(data);
+
   const [select, setSelect] = React.useState(false);
   const [shop, setShop] = React.useState(1);
+
   const handleChange = (event) => {
     setStatus(event.target.value);
+    filter();
+  };
+
+  const filter = () => {
+    setData(() => filterData);
+    console.log(status);
+    const filterData = data.filter((item) => item.type === status);
+    console.log(filterData);
   };
   const handleSelected = (value) => {
     setShop(value);
@@ -49,7 +60,7 @@ const Shops = () => {
   };
 
   return (
-    <div id="Shop" height="60%" justifyContent="center" alignItems="center">
+    <div id="Shop" paddingBlockStart="90px">
       <Container sx={{ marginY: 5 }}>
         <Box align="center">
           <Typography color="#ec5858" fontWeight={550}>
@@ -77,26 +88,27 @@ const Shops = () => {
                 value={status}
                 exclusive
                 onChange={handleChange}
+                onClick={filter}
                 aria-label="text alignment"
               >
                 <ToggleButton
-                  value="1"
+                  value="Recent"
                   variant="contained"
                   sx={{ border: "none", mx: 2, borderRadius: 3 }}
                 >
                   Newest
                 </ToggleButton>
                 <ToggleButton
-                  value="2"
+                  value="Popular"
                   sx={{ border: "none", mx: 2, borderRadius: 3 }}
                 >
                   Popular
                 </ToggleButton>
                 <ToggleButton
-                  value="3"
+                  value="Active"
                   sx={{ border: "none", mx: 2, borderRadius: 3 }}
                 >
-                  Active
+                  Popular
                 </ToggleButton>
               </StyledToggleButtonGroup>
             </Paper>
@@ -108,42 +120,21 @@ const Shops = () => {
             label="shops"
             onChange={handleChange}
             sx={{
-              justifyContent: { lg: "center", sm: "flexStart" },
-              overflowX: "scroll",
+              justifyContent: { lg: "center", sm: "flex" },
+              overflowX: { lg: "hidden", xs: "scroll" },
+              width: "50vw",
             }}
           >
-            <SimplePaper
-              isShadow={shop === 1}
-              value={1}
-              imgUrl={Abstrack}
-              name="Rajat Jain Sterling"
-              name2="Rajat Jain"
-              handleChange={handleSelected}
-            />
-            <SimplePaper
-              isShadow={shop === 2}
-              value={2}
-              imgUrl={Abstrack2}
-              name="Delhi 6"
-              name2="Ayush Upadhyay"
-              handleChange={handleSelected}
-            />
-            <SimplePaper
-              isShadow={shop === 3}
-              value={3}
-              imgUrl={Abstrack3}
-              name="M K Enterprises"
-              name2="Anuj Jain"
-              handleChange={handleSelected}
-            />
-            <SimplePaper
-              isShadow={shop === 4}
-              value={4}
-              imgUrl={Abstrack4}
-              name="Time World"
-              name2="Arjun Singh"
-              handleChange={handleSelected}
-            />
+            {Data.map((D) => (
+              <SimplePaper
+                isShadow={shop == "1"}
+                value={D.type}
+                imgUrl={D.img}
+                name={D.shop_name}
+                name2={D.name}
+                handleChange={handleSelected}
+              />
+            ))}
           </Box>
         </Box>
       </Container>

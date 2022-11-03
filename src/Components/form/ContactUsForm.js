@@ -17,7 +17,8 @@ import Container from "@mui/material/Container";
 import axios from "axios";
 import Contact from "../form/Contact.jpg";
 import ContactModal from "../Modal/ContactModal";
-export default function ContactUsForm() {
+import validators from "validators/lib/validators";
+export default function ContactUsForm(e) {
   const [open, setOpen] = React.useState(false);
 
   const [fields, setFields] = React.useState({
@@ -46,7 +47,9 @@ export default function ContactUsForm() {
         console.log(response);
       });
   };
+
   const emailValidation = () => {
+    setError(true);
     if (validator.isEmail(fields.email) && !validator.isEmpty(fields.email)) {
       return setError(false);
     } else {
@@ -54,26 +57,24 @@ export default function ContactUsForm() {
     }
   };
   const mobileValidation = () => {
-    return false
-    if (
-      validator.isNumeric(fields.mobile)<=10 &&
-      !validator.isEmpty(fields.mobile)
-    ) {
-      return false;
-    } else {
-      return true;
-    }
+    setError2(true);
+
+    return validator.isNumeric(fields.mobile) &&
+      !validator.isEmpty(fields.mobile) &&
+      fields.mobile.length == 10
+      ? setError2(false)
+      : setError2(true);
   };
+
   const handleChangeFields = (e) => {
     setFields({ ...fields, [e.target.name]: e.target.value });
     emailValidation();
     mobileValidation();
-
   };
 
   return (
     <>
-      <div id="Contact" style={{ marginBlockEnd: "4vh" }}>
+      <div id="Contact" style={{ marginBlock: "4vh" }}>
         <Container
           component="main"
           maxWidth="lg"
@@ -132,7 +133,7 @@ export default function ContactUsForm() {
                         id="email"
                         label="Email"
                         name="email"
-                        error={!emailValidation}
+                        error={error}
                         value={email}
                         autoComplete="email"
                         onChange={handleChangeFields}
@@ -155,7 +156,7 @@ export default function ContactUsForm() {
                         id="mobile"
                         label="Mobile"
                         name="mobile"
-                        error={!mobileValidation}
+                        error={error2}
                         value={mobile}
                         autoComplete="mobile"
                         onChange={handleChangeFields}
