@@ -1,57 +1,41 @@
-import {
-  Paper,
-  ToggleButton,
-  ToggleButtonGroup,
-  Typography,
-} from "@mui/material";
+import { Button, Grid, Paper, Typography } from "@mui/material";
 import "./Shops.css";
 import data from "./data";
 import { Box, Container } from "@mui/system";
-import { styled } from "@mui/material/styles";
 import React from "react";
 import SimplePaper from "../../Cards/shopsCard";
 
-const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
-  "& .MuiToggleButtonGroup-grouped": {
-    margin: theme.spacing(1),
-    border: 0,
-    "&.Mui-disabled": {
-      border: 0,
-    },
-    "&:not(:first-of-type)": {
-      borderRadius: 4,
-    },
-    "&:first-of-type": {
-      borderRadius: 4,
-    },
-    "&.Mui-selected, &.Mui-selected:hover": {
-      color: "white",
+const styles = {
+  border: "none",
+  px: 4,
+  my: 1,
+
+  borderRadius: 1,
+  backgroundColor: "tansparent",
+  color: "Black",
+  "MuiButton-text": {
+    "&.Mui-selected": {
       backgroundColor: "#ec5858",
+      color: "white",
     },
   },
-}));
+};
 
 const Shops = () => {
-  const [status, setStatus] = React.useState(["Recent"]);
+  const [status, setStatus] = React.useState("R");
   const [Data, setData] = React.useState(data);
-  const [select, setSelect] = React.useState(false);
   const [shop, setShop] = React.useState(1);
 
-  const handleChange = (event) => {
-    setStatus(event.target.value);
-    filter();
+  const handleSelected = (value) => {
+    setShop(value);
   };
 
-  const filter = () => {
-    setData(() => filterData);
-    console.log(status);
-    const filterData = data.filter((item) => item.type == status);
-    console.log(filterData);
-  };
-  const handleSelected = (event) => {
-    setShop(event.target.value);
-    setSelect(true);
-  };
+  React.useEffect(() => {
+    if (status) {
+      const filterData = data.filter((item) => item.type == status);
+      setData(filterData);
+    }
+  }, [status]);
 
   return (
     <div id="Shop" paddingBlockStart="90px">
@@ -68,64 +52,90 @@ const Shops = () => {
             <br /> for the best shopping experience on LITCHIES.
           </Typography>
 
-          <Container maxWidth="xs" sx={{ my: 4 }}>
+          <Container maxWidth="xs" sx={{ my: 2 }}>
             <Paper
               sx={{
                 backgroundColor: "rgba(255,228,228,1)",
                 borderRadius: 1,
                 boxShadow: "none",
+                justifyContent: "space-between",
               }}
             >
-              <StyledToggleButtonGroup
-                size="medium"
-                fullWidth
-                onClick={handleChange}
-                value={status}
-                aria-label="text alignment"
+              <Button
+                variant="text"
+                sx={{
+                  ...styles,
+                  "&:hover": {
+                    backgroundColor: "#fce5e",
+                  },
+                  "&:active": {
+                    backgroundColor: "#ec5858",
+                  },
+                }}
+                color={status == "R" ? true : false}
+                onClick={() => setStatus("R")}
               >
-                <ToggleButton
-                  value="Recent"
-                  variant="contained"
-                  sx={{ border: "none", mx: 2, borderRadius: 3 }}
-                >
-                  Newest
-                </ToggleButton>
-                <ToggleButton
-                  value="Popular"
-                  sx={{ border: "none", mx: 2, borderRadius: 3 }}
-                >
-                  Popular
-                </ToggleButton>
-                <ToggleButton
-                  value="Active"
-                  sx={{ border: "none", mx: 2, borderRadius: 3 }}
-                >
-                  Active
-                </ToggleButton>
-              </StyledToggleButtonGroup>
+                Newest
+              </Button>
+              <Button
+                variant="text"
+                sx={{
+                  ...styles,
+                  "&:hover": {
+                    backgroundColor: "#fce5e",
+                  },
+                  "&:active": {
+                    backgroundColor: "#ec5858",
+                  },
+                }}
+                selected={status == "P" ? true : false}
+                onClick={() => setStatus("P")}
+              >
+                Popular
+              </Button>
+              <Button
+                variant="text"
+                sx={{
+                  ...styles,
+                  "&:hover": {
+                    backgroundColor: "#fce5e",
+                  },
+                  "&:active": {
+                    backgroundColor: "#ec5858",
+                  },
+                }}
+                selected={status == "A" ? true : false}
+                onClick={() => setStatus("A")}
+              >
+                Active
+              </Button>
             </Paper>
           </Container>
+
           <Box
-            display="flex"
-            marginY={5}
             exclusive
             label="shops"
             sx={{
-              justifyContent: { lg: "center", sm: "flex" },
-              overflowX: { lg: "hidden", xs: "scroll" },
-              width: "50vw",
+              justifyContent: { lg: "center", xs: "flexStart" },
+              overflowX: { xs: "scroll" },
             }}
           >
-            {Data.map((D) => (
-              <SimplePaper
-                isShadow={shop}
-                value={D.id}
-                imgUrl={D.img}
-                name={D.shop_name}
-                name2={D.name}
-                handleChange={handleSelected}
-              />
-            ))}
+            <Grid container>
+              <div>
+                {Data.map((D) => (
+                  <Grid item lg={3}>
+                    <SimplePaper
+                      isShadow={shop === D.id}
+                      value={D.id}
+                      imgUrl={D.img}
+                      name={D.shop_name}
+                      name2={D.name}
+                      handleChange={handleSelected}
+                    />
+                  </Grid>
+                ))}
+              </div>
+            </Grid>
           </Box>
         </Box>
       </Container>
