@@ -72,7 +72,6 @@ const Shops = () => {
                     backgroundColor: "#ec5858",
                   },
                 }}
-                color={status == "R" ? true : false}
                 onClick={() => setStatus("R")}
               >
                 Newest
@@ -88,7 +87,6 @@ const Shops = () => {
                     backgroundColor: "#ec5858",
                   },
                 }}
-                selected={status == "P" ? true : false}
                 onClick={() => setStatus("P")}
               >
                 Popular
@@ -104,7 +102,6 @@ const Shops = () => {
                     backgroundColor: "#ec5858",
                   },
                 }}
-                selected={status == "A" ? true : false}
                 onClick={() => setStatus("A")}
               >
                 Active
@@ -113,29 +110,24 @@ const Shops = () => {
           </Container>
 
           <Box
+            display="flex"
             exclusive
             label="shops"
             sx={{
               justifyContent: { lg: "center", xs: "flexStart" },
-              overflowX: { xs: "scroll" },
+              overflowX: "scroll",
             }}
           >
-            <Grid container>
-              <div>
-                {Data.map((D) => (
-                  <Grid item lg={3}>
-                    <SimplePaper
-                      isShadow={shop === D.id}
-                      value={D.id}
-                      imgUrl={D.img}
-                      name={D.shop_name}
-                      name2={D.name}
-                      handleChange={handleSelected}
-                    />
-                  </Grid>
-                ))}
-              </div>
-            </Grid>
+            {Data.map((D) => (
+              <SimplePaper
+                isShadow={shop === D.id}
+                value={D.id}
+                imgUrl={D.img}
+                name={D.shop_name}
+                name2={D.name}
+                handleChange={handleSelected}
+              />
+            ))}
           </Box>
         </Box>
       </Container>
