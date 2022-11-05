@@ -28,54 +28,54 @@ export default function ContactUsForm(e) {
     comment: "",
   });
   const { name, email, mobile, comment } = fields;
-  const [error, setError] = React.useState(false);
-  const [error2, setError2] = React.useState(false);
+  const [error3, setError3] = React.useState(false);
   const handleSubmit = () => {
-    setOpen(true);
-    const data = new FormData();
-    data.append("name", name);
-    data.append("email", email);
-    data.append("mobile", mobile);
-    data.append("comments", comment);
-    axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
-    axios
-      .post(
-        "https://script.google.com/macros/s/AKfycbwcd_jndZGDbTqJzL2nbE-ib0vUvkdQIbuHRgqxuAtMrc5yln8p2lHI-IfMoKghkjcP_w/exec",
-        data
-      )
-      .then(function (response) {
-        console.log(response);
-      });
-  };
-
-  const emailValidation = () => {
-    setError(true);
-    if (validator.isEmail(fields.email) && !validator.isEmpty(fields.email)) {
-      return setError(false);
-    } else {
-      return true;
+    formValidation();
+    if (!formValidation) {
+      setOpen(true);
+      const data = new FormData();
+      data.append("name", name);
+      data.append("email", email);
+      data.append("mobile", mobile);
+      data.append("comments", comment);
+      axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
+      axios
+        .post(
+          "https://script.google.com/macros/s/AKfycbwcd_jndZGDbTqJzL2nbE-ib0vUvkdQIbuHRgqxuAtMrc5yln8p2lHI-IfMoKghkjcP_w/exec",
+          data
+        )
+        .then(function (response) {
+          console.log(response);
+        });
     }
   };
-  const mobileValidation = () => {
-    setError2(true);
 
-    return validator.isNumeric(fields.mobile) &&
+  const formValidation = () => {
+    setError3(false);
+    if (
+      !validator.isEmpty(fields.name) &&
       !validator.isEmpty(fields.mobile) &&
-      fields.mobile.length == 10
-      ? setError2(false)
-      : setError2(true);
-  };
-  const Validation = () => {
-    if (validator.isEmpty(fields)) {
-      return false;
+      !validator.isEmpty(fields.company) &&
+      !validator.isEmpty(fields.email)
+    ) {
+      if (
+        validator.isNumeric(fields.mobile) &&
+        validator.isEmail(fields.email) &&
+        validator.isAlpha(fields.name)
+      ) {
+        return false;
+      } else {
+        setError3(true);
+        return alert(`Invalid Fields`);
+      }
     } else {
-      return true;
+      setError3(true);
+      return alert(`Empty Fields`);
     }
   };
+
   const handleChangeFields = (e) => {
     setFields({ ...fields, [e.target.name]: e.target.value });
-    emailValidation();
-    mobileValidation();
   };
 
   return (
@@ -121,7 +121,7 @@ export default function ContactUsForm(e) {
                   <Grid container spacing={2} my={5}>
                     <Grid item xs={12} lg={6}>
                       <TextField
-                        required
+                        error={error3 ? true : false}
                         fullWidth
                         id="Name"
                         label="Name"
@@ -134,12 +134,11 @@ export default function ContactUsForm(e) {
                     </Grid>
                     <Grid item xs={12} lg={6}>
                       <TextField
-                        required
                         fullWidth
                         id="email"
                         label="Email"
                         name="email"
-                        error={error}
+                        error={error3 ? true : false}
                         value={email}
                         autoComplete="email"
                         onChange={handleChangeFields}
@@ -147,7 +146,7 @@ export default function ContactUsForm(e) {
                     </Grid>
                     <Grid item xs={12} lg={6}>
                       <TextField
-                        required
+                        error={error3 ? true : false}
                         fullWidth
                         id="company"
                         label="Company"
@@ -162,7 +161,7 @@ export default function ContactUsForm(e) {
                         id="mobile"
                         label="Mobile"
                         name="mobile"
-                        error={error2}
+                        error={error3 ? true : false}
                         value={mobile}
                         autoComplete="mobile"
                         onChange={handleChangeFields}
@@ -182,7 +181,7 @@ export default function ContactUsForm(e) {
                       />
                     </Grid>
                   </Grid>
-                  
+
                   <Grid item align="center" margin="10">
                     <Button
                       onClick={handleSubmit}
