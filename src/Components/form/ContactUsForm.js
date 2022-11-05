@@ -52,26 +52,36 @@ export default function ContactUsForm(e) {
 
   const formValidation = () => {
     setError3(false);
-    if (
-      !validator.isEmpty(fields.name) &&
-      !validator.isEmpty(fields.mobile) &&
-      !validator.isEmpty(fields.company) &&
-      !validator.isEmpty(fields.email)
-    ) {
       if (
-        validator.isNumeric(fields.mobile) &&
-        validator.isEmail(fields.email) &&
-        validator.isAlpha(fields.name)
+        !validator.isEmpty(fields.name) &&
+        !validator.isEmpty(fields.mobile) &&
+        !validator.isEmpty(fields.company) &&
+        !validator.isEmpty(fields.email)
       ) {
-        return false;
+        if (
+          validator.isNumeric(fields.mobile))
+          {
+
+          }
+        else if(validator.isEmail(fields.email))
+        {}
+
+         else if(validator.isAlpha(fields.name))
+        {
+
+        }
+        else{
+          return false;
+        }
+      }
+        else {
+          setError3(true);
+          return alert(`Invalid Fields`);
+        }
       } else {
         setError3(true);
-        return alert(`Invalid Fields`);
+        return alert(`Empty Fields`);
       }
-    } else {
-      setError3(true);
-      return alert(`Empty Fields`);
-    }
   };
 
   const handleChangeFields = (e) => {
