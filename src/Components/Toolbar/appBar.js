@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Logo from "../Image/logo/logo.js";
-import { styled, useTheme } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -10,17 +9,8 @@ import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import {
-  AppBar,
-  CssBaseline,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  SwipeableDrawer,
-} from "@mui/material";
+import { AppBar } from "@mui/material";
 import { HashLink as Link } from "react-router-hash-link";
-
 const CustomAppBar = (props) => {
   const pages = [
     { id: "1", name: "Home", to: "#home" },
@@ -29,20 +19,19 @@ const CustomAppBar = (props) => {
     { id: "1", name: "Shop", to: "#Shop" },
     { id: "1", name: "Contact Us", to: "#Contact" },
   ];
-
+  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-    
+    setAnchorElNav(null); 
   };
 
   return (
     <BrowserRouter>
-      <AppBar position="fixed" sx={{ background: "white", boxShadow: "none" }}>
+      <AppBar position="sticky" sx={{ background: "white", boxShadow: "none" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -57,7 +46,6 @@ const CustomAppBar = (props) => {
                 display: { xs: "flex", md: "none", justifyContent: "right" },
               }}
             >
-              <CssBaseline />
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -73,25 +61,29 @@ const CustomAppBar = (props) => {
                   style={{ width: "20px", height: "20px" }}
                 />
               </IconButton>
-              <SwipeableDrawer
-                elevation={16}
+
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
-                  flexShrink: 0,
-                  "& .MuiDrawer-paper": {
-                    width: "100%",
-                    height: "35%",
-                    backgroundColor: "Black",
-                    align: "center",
-                  },
+                  display: { xs: "block", md: "none" },
                 }}
-                anchor="Top"
-                open={anchorElNav}
               >
                 {pages.map((page) => (
                   <Link
                     to={page.to}
-                    style={{ textDecoration: "none", color: "grey" }}
+                    style={{ textDecoration: "none"}}
                   >
                     <MenuItem
                       key={page.id}
