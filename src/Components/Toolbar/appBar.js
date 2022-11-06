@@ -37,7 +37,6 @@ const CustomAppBar = (props) => {
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-    
   };
 
   return (
@@ -101,7 +100,7 @@ const CustomAppBar = (props) => {
                     </MenuItem>
                   </Link>
                 ))}
-              </Menu>
+              </SwipeableDrawer>
             </Box>
             <Box
               sx={{
