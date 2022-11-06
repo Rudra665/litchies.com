@@ -1,5 +1,9 @@
+import { Box, Container, Grid, Hidden, Typography } from "@mui/material";
 import React from "react";
-
+import "./joinUs.css";
+import gPlayButton from "../../Image/googlePlay/gPlayButton.png";
+import Mobile from "../../Image/googlePlay/Mobile.svg";
+import { Link } from "react-router-dom";
 const JoinUsPage = () => {
   return (
     <div className="third">
@@ -48,13 +52,16 @@ const JoinUsPage = () => {
                   Download litchies app from the play store today and start a
                   new local shopping experience while sitting at home.
                 </Typography>
-                <a href="" py={1}>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.atflabs.litchies"
+                  py={1}
+                >
                   <img
                     src={gPlayButton}
                     style={{
                       height: "60%",
                     }}
-                  ></img>
+                  />
                 </a>
               </Box>
             </Hidden>

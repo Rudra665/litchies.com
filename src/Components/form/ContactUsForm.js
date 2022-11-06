@@ -17,7 +17,8 @@ import Container from "@mui/material/Container";
 import axios from "axios";
 import Contact from "../form/Contact.jpg";
 import ContactModal from "../Modal/ContactModal";
-export default function ContactUsForm() {
+import validators from "validators/lib/validators";
+export default function ContactUsForm(e) {
   const [open, setOpen] = React.useState(false);
 
   const [fields, setFields] = React.useState({
@@ -27,53 +28,69 @@ export default function ContactUsForm() {
     comment: "",
   });
   const { name, email, mobile, comment } = fields;
-  const [error, setError] = React.useState(false);
-  const [error2, setError2] = React.useState(false);
+  const [error3, setError3] = React.useState(false);
   const handleSubmit = () => {
-    setOpen(true);
-    const data = new FormData();
-    data.append("name", name);
-    data.append("email", email);
-    data.append("mobile", mobile);
-    data.append("comments", comment);
-    axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
-    axios
-      .post(
-        "https://script.google.com/macros/s/AKfycbwcd_jndZGDbTqJzL2nbE-ib0vUvkdQIbuHRgqxuAtMrc5yln8p2lHI-IfMoKghkjcP_w/exec",
-        data
-      )
-      .then(function (response) {
-        console.log(response);
-      });
-  };
-  const emailValidation = () => {
-    if (validator.isEmail(fields.email) && !validator.isEmpty(fields.email)) {
-      return setError(false);
-    } else {
-      return true;
+    formValidation();
+    if (!formValidation) {
+      setOpen(true);
+      const data = new FormData();
+      data.append("name", name);
+      data.append("email", email);
+      data.append("mobile", mobile);
+      data.append("comments", comment);
+      axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
+      axios
+        .post(
+          "https://script.google.com/macros/s/AKfycbwcd_jndZGDbTqJzL2nbE-ib0vUvkdQIbuHRgqxuAtMrc5yln8p2lHI-IfMoKghkjcP_w/exec",
+          data
+        )
+        .then(function (response) {
+          console.log(response);
+        });
     }
   };
-  const mobileValidation = () => {
-    return false
-    if (
-      validator.isNumeric(fields.mobile)<=10 &&
-      !validator.isEmpty(fields.mobile)
-    ) {
-      return false;
-    } else {
-      return true;
-    }
+
+  const formValidation = () => {
+    setError3(false);
+      if (
+        !validator.isEmpty(fields.name) &&
+        !validator.isEmpty(fields.mobile) &&
+        !validator.isEmpty(fields.company) &&
+        !validator.isEmpty(fields.email)
+      ) {
+        if (
+          validator.isNumeric(fields.mobile))
+          {
+
+          }
+        else if(validator.isEmail(fields.email))
+        {}
+
+         else if(validator.isAlpha(fields.name))
+        {
+
+        }
+        else{
+          return false;
+        }
+      }
+        else {
+          setError3(true);
+          return alert(`Invalid Fields`);
+        }
+      } else {
+        setError3(true);
+        return alert(`Empty Fields`);
+      }
   };
+
   const handleChangeFields = (e) => {
     setFields({ ...fields, [e.target.name]: e.target.value });
-    emailValidation();
-    mobileValidation();
-
   };
 
   return (
     <>
-      <div id="Contact" style={{ marginBlockEnd: "4vh" }}>
+      <div id="Contact" style={{ marginBlock: "4vh" }}>
         <Container
           component="main"
           maxWidth="lg"
@@ -114,7 +131,7 @@ export default function ContactUsForm() {
                   <Grid container spacing={2} my={5}>
                     <Grid item xs={12} lg={6}>
                       <TextField
-                        required
+                        error={error3 ? true : false}
                         fullWidth
                         id="Name"
                         label="Name"
@@ -127,12 +144,11 @@ export default function ContactUsForm() {
                     </Grid>
                     <Grid item xs={12} lg={6}>
                       <TextField
-                        required
                         fullWidth
                         id="email"
                         label="Email"
                         name="email"
-                        error={!emailValidation}
+                        error={error3 ? true : false}
                         value={email}
                         autoComplete="email"
                         onChange={handleChangeFields}
@@ -140,7 +156,7 @@ export default function ContactUsForm() {
                     </Grid>
                     <Grid item xs={12} lg={6}>
                       <TextField
-                        required
+                        error={error3 ? true : false}
                         fullWidth
                         id="company"
                         label="Company"
@@ -155,7 +171,7 @@ export default function ContactUsForm() {
                         id="mobile"
                         label="Mobile"
                         name="mobile"
-                        error={!mobileValidation}
+                        error={error3 ? true : false}
                         value={mobile}
                         autoComplete="mobile"
                         onChange={handleChangeFields}
@@ -175,13 +191,7 @@ export default function ContactUsForm() {
                       />
                     </Grid>
                   </Grid>
-                  {/* <Grid item>
-                <Checkbox
-                  {...label}
-                  defaultChecked
-                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
-                /><Typography></Typography>
-              </Grid> */}
+
                   <Grid item align="center" margin="10">
                     <Button
                       onClick={handleSubmit}

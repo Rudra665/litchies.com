@@ -19,7 +19,7 @@ import {
 const Footer = () => {
   return (
     <>
-      <div className="footer">
+      <div className="footer" style={{ width: "100%" }}>
         <Container maxWidth="xl">
           <Grid container alignItems="center" justifyContent="center">
             <Hidden mdDown>

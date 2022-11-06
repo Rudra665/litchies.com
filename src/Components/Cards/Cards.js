@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useTheme } from "@mui/material/styles";
+// import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -21,17 +21,48 @@ const FeaturesCard = (props) => {
     >
       <CardContent>
         <Grid container justifyContent="center">
-          <Grid item lg={2} md={2} sm={12}>
-            <Box>
-              <img src={imgUrl} alt="img" />
-            </Box>
+          <Grid item lg={2} md={2} sm={2}>
+            <img src={imgUrl} alt="img" />
           </Grid>
 
-          <Grid item lg={10} md={9} sm={12}>
+          <Grid item lg={10} md={10} sm={10}>
             <Hidden smUp>
               <Box
                 align="center"
                 sx={{
+                  mt: 2,
+                  px: {
+                    sm: "none",
+                    lg: 4,
+                  },
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontWeight: "700",
+                    fontSize: "24px",
+                    fontFamily: "inter",
+                    lineHeight: "26px",
+                  }}
+                >
+                  {heading}
+                </Typography>
+                <Typography
+                  color="text.secondary"
+                  component="div"
+                  lineHeight="20px"
+                  fontSize="16px"
+                  sx={{ mt: 1 }}
+                >
+                  {footer}
+                </Typography>
+              </Box>
+            </Hidden>
+            <Hidden mdDown>
+              <Box
+                align="left"
+                sx={{
+                  display: "flexBox",
                   mt: 2,
                   px: {
                     sm: "none",
@@ -61,11 +92,11 @@ const FeaturesCard = (props) => {
                 </Typography>
               </Box>
             </Hidden>
-
-            <Hidden mdDown>
+            <Hidden smDown mdUp>
               <Box
-                align="left"
+                align="Left"
                 sx={{
+                  display: "flexBox",
                   mt: 2,
                   px: {
                     sm: "none",

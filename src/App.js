@@ -8,6 +8,8 @@ import Features from "./Components/Views/Features/Features";
 import ContactUsForm from "./Components/form/ContactUsForm";
 import About from "./Components/Views/About/About";
 import Footer from "./Components/Views/Footer/Footer";
+import { Box, Grid } from "@mui/material";
+import JoinUsPage from "./Components/Views/JoinUs/JoinUsPage";
 
 // import CustomButton from "./Components/CustomButtons/customButton";
 const App = () => {
@@ -20,30 +22,26 @@ const App = () => {
   const name2 = "";
   return (
     <>
-      <div>
-        <CustomAppBar />
-      </div>
-      <div>
-        <Home />
-      </div>
-      <div>
-        <About />
-      </div>
-      <div>
-        <Features />
-      </div>
-      <div>
-        <Shops />
-      </div>
+      <CustomAppBar />
+
+      <Home />
+
+      <About />
+
+      <Features />
+
+      <Shops />
+
+      <JoinUsPage />
+
       {/* <Container>
         <Box marginY={20}>
           <Typography variant="h4" align="center" pb={5}>
-            New Shops Joining Everyday
           </Typography>
 
           <Box>
             <Grid container>
-              <Grid item lg={4} sm={12}>
+              <Grid item ={4} sm={12}>
                 <Box sx={{}}>
                   <img src={shop1}></img>
                 </Box>
@@ -63,7 +61,7 @@ const App = () => {
                   </Box>
                 </Box>
               </Grid>
-              <Grid item lg={4} sm={12}>
+              <Grid item ={4} sm={12}>
                 <Box>
                   <img src={shop2}></img>
                 </Box>
@@ -83,7 +81,7 @@ const App = () => {
                   </Box>
                 </Box>
               </Grid>
-              <Grid item lg={4} sm={12}>
+              <Grid item ={4} sm={12}>
                 <Box>
                   <img src={shop3}></img>
                 </Box>
@@ -107,12 +105,10 @@ const App = () => {
           </Box>
         </Box>
       </Container> */}
-      <div style={{ background: { Contact } }}>
-        <ContactUsForm />
-      </div>
-      <div>
-        <Footer />
-      </div>
+
+      <ContactUsForm />
+
+      <Footer />
     </>
   );
 };
