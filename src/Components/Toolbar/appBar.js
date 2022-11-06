@@ -25,9 +25,8 @@ const CustomAppBar = (props) => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleCloseNavMenu = (null) => {
-    setAnchorElNav(null);
-    
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null); 
   };
 
   return (
@@ -84,7 +83,7 @@ const CustomAppBar = (props) => {
                 {pages.map((page) => (
                   <Link
                     to={page.to}
-                    style={{ textDecoration: "none", color: "grey" }}
+                    style={{ textDecoration: "none"}}
                   >
                     <MenuItem
                       key={page.id}
