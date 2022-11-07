@@ -1,7 +1,7 @@
 import React from "react";
 import CustomAppBar from "./Components/Toolbar/appBar";
 import "./app.css";
-import Contact from "./Components/form/Contact.jpg";
+
 import Home from "./Components/Views/Home/Home";
 import Shops from "./Components/Views/Shops/Shops";
 import Features from "./Components/Views/Features/Features";
@@ -105,9 +105,9 @@ const App = () => {
           </Box>
         </Box>
       </Container> */}
-
-      <ContactUsForm />
-
+     
+        <ContactUsForm />
+      
       <Footer />
     </>
   );

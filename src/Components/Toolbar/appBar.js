@@ -24,10 +24,10 @@ import { HashLink as Link } from "react-router-hash-link";
 const CustomAppBar = (props) => {
   const pages = [
     { id: "1", name: "Home", to: "#home" },
-    { id: "1", name: "About Us", to: "#About" },
-    { id: "1", name: "Features", to: "#Features" },
-    { id: "1", name: "Shop", to: "#Shop" },
-    { id: "1", name: "Contact Us", to: "#Contact" },
+    { id: "2", name: "About Us", to: "#About" },
+    { id: "3", name: "Features", to: "#Features" },
+    { id: "4", name: "Shop", to: "#Shop" },
+    { id: "5", name: "Contact Us", to: "#Contact" },
   ];
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -53,7 +53,11 @@ const CustomAppBar = (props) => {
             <Box
               sx={{
                 flexGrow: 1,
-                display: { xs: "flex", md: "none", justifyContent: "right" },
+                display: {
+                  xs: "flex",
+                  md: "none",
+                  justifyContent: "right",
+                },
               }}
             >
               <CssBaseline />
@@ -65,7 +69,6 @@ const CustomAppBar = (props) => {
                 onClick={handleOpenNavMenu}
                 color="inherit"
               >
-                {/* <MenuTwoToneIcon /> */}
                 <img
                   src="https://img.icons8.com/ios-filled/50/000000/menu--v1.png"
                   alt="menu-icon"
@@ -73,10 +76,8 @@ const CustomAppBar = (props) => {
                 />
               </IconButton>
               <SwipeableDrawer
-                elevation={16}
                 onClose={handleCloseNavMenu}
                 sx={{
-                  flexShrink: 0,
                   "& .MuiDrawer-paper": {
                     width: "100%",
                     height: "35%",

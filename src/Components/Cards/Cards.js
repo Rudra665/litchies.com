@@ -12,9 +12,10 @@ const FeaturesCard = (props) => {
   // const match = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <Card
+      data-aos="flip-up"
+      data-aos-anchor-placement="bottom-bottom"
       sx={{
         m: 2,
-
         boxShadow: "14px 22px 52px -12px rgba(127, 127, 127, 0.13)",
         borderRadius: "14px",
       }}
@@ -66,7 +67,6 @@ const FeaturesCard = (props) => {
                   mt: 2,
                   px: {
                     sm: "none",
-
                     lg: 4,
                   },
                 }}

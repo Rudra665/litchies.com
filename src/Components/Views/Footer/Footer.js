@@ -24,7 +24,7 @@ const Footer = () => {
           <Grid container alignItems="center" justifyContent="center">
             <Hidden mdDown>
               <Grid item lg={6} xs={12} align="left" mt={2}>
-                <img src={Logo} width="30%" height="100%"></img>
+                <img src={Logo} width="20%" height="100%"></img>
               </Grid>
             </Hidden>
             <Hidden smUp>

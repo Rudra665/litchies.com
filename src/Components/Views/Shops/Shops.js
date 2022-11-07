@@ -14,7 +14,6 @@ const Shops = () => {
     border: "none",
     my: 1,
     mx: 1,
-
     borderRadius: 2,
     color: "Black",
     "&.MuiButton-contained": {
@@ -36,7 +35,7 @@ const Shops = () => {
 
   return (
     <div id="Shop" paddingBlockStart="90px">
-      <Container sx={{ marginY: 5 }}>
+      <Container sx={{ marginY: 3 }}>
         <Box align="center">
           <Typography color="#ec5858" fontWeight={550}>
             Valuable Shops
@@ -48,12 +47,7 @@ const Shops = () => {
             Our shopkeerps update their collection and prices regularly
             <br /> for the best shopping experience on LITCHIES.
           </Typography>
-
-          <Container
-            maxWidth="
-          "
-            sx={{ my: 2 }}
-          >
+          <Box sx={{ my: 3 }}>
             <Paper
               sx={{
                 maxWidth: "fit-content",
@@ -108,8 +102,7 @@ const Shops = () => {
                 </Button>
               </div>
             </Paper>
-          </Container>
-
+          </Box>
           <Box
             display="flex"
             exclusive
