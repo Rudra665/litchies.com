@@ -88,24 +88,19 @@ const CustomAppBar = (props) => {
                 anchor="Top"
                 open={anchorElNav}
               >
-                <List>
-                  {pages.map((page) => (
-                    <Link
-                      to={page.to}
-                      style={{ textDecoration: "none", color: "white" }}
+                {pages.map((page) => (
+                  <Link
+                    to={page.to}
+                    style={{ textDecoration: "none", color: "grey" }}
+                  >
+                    <MenuItem
+                      key={page.id}
+                      onClick={() => handleCloseNavMenu(page)}
                     >
-                      <ListItem
-                        key={page.id}
-                        align="center"
-                        onClick={() => handleCloseNavMenu(page)}
-                      >
-                        <ListItemButton sx={{ justifyContent: "center" }}>
-                          <Typography>{page.name}</Typography>
-                        </ListItemButton>
-                      </ListItem>
-                    </Link>
-                  ))}
-                </List>
+                      <Typography textAlign="center">{page.name}</Typography>
+                    </MenuItem>
+                  </Link>
+                ))}
               </SwipeableDrawer>
             </Box>
             <Box
