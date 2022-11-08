@@ -3,16 +3,24 @@ import { Box, Container } from "@mui/system";
 import React from "react";
 import ShareModal from "../../Modal/ShareModal";
 import image from "../../Image/image.png";
-
 import "./Home.css";
+import "aos/dist/aos.css";
+import Aos from "aos";
 const Home = () => {
+  Aos.init({
+    delay: "2",
+    duration: "1400",
+    ease: "ease",
+  });
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <div
+      data-aos-anchor="Bottom"
       id="home"
       className="header"
+      alignItems="center"
       style={{
         height: "100vh",
         width: "100%",
@@ -32,10 +40,14 @@ const Home = () => {
             item
             xs={12}
             md={6}
-            lg={5}
+            lg={6}
             sx={{ mt: 4, justifyContent: "center" }}
           >
-            <Box alignItems={"center"}>
+            <Box
+              data-aos="fade-up"
+              data-aos-anchor-placement="bottom-bottom"
+              alignItems={"center"}
+            >
               <h1
                 style={{
                   fontFamily: "Inter",
@@ -99,8 +111,9 @@ const Home = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item md={6} lg={7}>
+          <Grid item md={6} lg={6} xs={12}>
             <Box
+              data-aos="zoom-in"
               sx={{
                 display: { xs: "none", md: "flex", lg: "block" },
               }}

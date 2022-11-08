@@ -9,9 +9,10 @@ import Container from "@mui/material/Container";
 import axios from "axios";
 import ContactModal from "../Modal/ContactModal";
 import { Box } from "@mui/system";
+import { Alert, Snackbar } from "@mui/material";
 export default function ContactUsForm() {
   const [open, setOpen] = React.useState(false);
-
+  const [disable, setDisable] = React.useState(true);
   const [fields, setFields] = React.useState({
     name: "",
     email: "",
@@ -24,12 +25,13 @@ export default function ContactUsForm() {
     name: false,
     mobile: false,
     store: false,
+    email: false,
   });
 
   const handleSubmit = () => {
-    console.log(Object.values(error));
+    console.log(!Object.values(error));
+    setOpen(true);
     if (!Object.values(error).includes(true)) {
-      setOpen(true);
       const data = new FormData();
       data.append("name", name);
       data.append("email", email);
@@ -52,8 +54,6 @@ export default function ContactUsForm() {
         store: "",
         comment: "",
       });
-    } else {
-      alert("Fix Invalid Fields !");
     }
   };
 
@@ -61,9 +61,23 @@ export default function ContactUsForm() {
     if (
       e.target.name === "name" ||
       e.target.name === "mobile" ||
-      e.target.name === "store"
+      e.target.name === "store" ||
+      e.target.name === "email"
     ) {
-      if (e.target.value === "") {
+      setDisable(false);
+      if (e.target.name === "mobile") {
+        if (e.target.value.length !== 10) {
+          setError({ ...error, [e.target.name]: true });
+        } else {
+          setError({ ...error, [e.target.name]: false });
+        }
+      } else if (e.target.name === "email") {
+        if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(e.target.value))
+          setError({ ...error, [e.target.name]: false });
+        else {
+          setError({ ...error, [e.target.name]: true });
+        }
+      } else if (e.target.value == "") {
         setError({ ...error, [e.target.name]: true });
       } else {
         setError({ ...error, [e.target.name]: false });
@@ -90,7 +104,12 @@ export default function ContactUsForm() {
                 backgroundColor: "white",
               }}
             >
-              <Grid container>
+              <Grid
+                container
+                alignItems="center"
+                justifyContent="center"
+                spacing={2}
+              >
                 <Grid item lg={6}>
                   <Box>
                     <img src={Contact} width="100%" />
@@ -104,24 +123,24 @@ export default function ContactUsForm() {
                   >
                     <Typography
                       align="center"
-                      component="h1"
-                      variant="h2"
+                      variant="h3"
                       noWrap
                       color="#ec5858"
                     >
                       Contact Us
                     </Typography>
                     <Typography
+                      variant="p"
                       align="center"
                       style={{ wordSpacing: 2, color: "grey" }}
                     >
                       We would love to hear from You
                     </Typography>
                     <Box sx={{ p: 4 }}>
-                      <Grid container spacing="3">
-                        <Grid lg={12}>
+                      <Grid container spacing={1} alignItems="baseline">
+                        <Grid item lg={6} xs={12}>
                           <TextField
-                            variant="outlined"
+                            variant="standard"
                             fullWidth
                             required
                             error={error.name}
@@ -135,26 +154,28 @@ export default function ContactUsForm() {
                             onChange={handleChangeFields}
                           />
                         </Grid>
-                        <Grid item lg={12}>
+                        <Grid item lg={6} xs={12}>
                           <TextField
                             // sx={{ my: "1" }}
-                            variant="outlined"
+                            variant="standard"
                             fullWidth
                             id="email"
                             type="email"
-                            label="example: xyz@gmail.com"
+                            error={error.email}
+                            helperText={error.email && "EMAIL CANNOT BE EMPTY!"}
+                            label="Email"
                             name="email"
                             value={email}
                             autoComplete="email"
                             onChange={handleChangeFields}
                           />
                         </Grid>
-                        <Grid item lg={12}>
+                        <Grid item lg={6} xs={12}>
                           <TextField
                             // sx={{ my: "1" }}
-                            variant="outlined"
-                            required
+                            variant="standard"
                             fullWidth
+                            required
                             id="store"
                             type="store"
                             helperText={
@@ -168,12 +189,11 @@ export default function ContactUsForm() {
                             onChange={handleChangeFields}
                           />
                         </Grid>
-                        <Grid item lg={12}>
+                        <Grid item lg={6} xs={12}>
                           <TextField
-                            // sx={{ my: "1" }}
-                            variant="outlined"
-                            required
+                            variant="standard"
                             fullWidth
+                            required
                             id="mobile"
                             type="number"
                             label="Mobile"
@@ -187,35 +207,33 @@ export default function ContactUsForm() {
                             onChange={handleChangeFields}
                           />
                         </Grid>
-                        <Grid item lg={12}>
+                        <Grid item lg={12} xs={12}>
                           <TextField
-                            // sx={{ my: "1" }}
-                            variant="outlined"
+                            variant="standard"
                             fullWidth
-                            id="outlined-multiline-static"
                             label="Comments"
                             name="comment"
                             value={comment}
                             multiline
-                            rows={4}
                             onChange={handleChangeFields}
                           />
                         </Grid>
-
-                        <Grid item lg={12}>
-                          <Button
-                            onClick={handleSubmit}
-                            sx={{
-                              boxShadow: "none",
-                              borderRadius: "10px",
-                              color: "white",
-                              paddingInline: "10%",
-                              backgroundColor: "#ec5858",
-                              size: "large",
-                            }}
-                          >
-                            Send
-                          </Button>
+                        <Grid item xs={12}>
+                          <Box mt={4}>
+                            <Button
+                              onClick={handleSubmit}
+                              disabled={disable ? true : false}
+                              style={{
+                                borderRadius: "10px",
+                                paddingInline: "10%",
+                                color: "white",
+                                backgroundColor: "#ec5858",
+                                size: "large",
+                              }}
+                            >
+                              Send
+                            </Button>
+                          </Box>
                         </Grid>
                       </Grid>
                     </Box>
@@ -225,8 +243,25 @@ export default function ContactUsForm() {
             </div>
           </Container>
         </Box>
+        <Snackbar
+          open={open}
+          onClose={() => setOpen(false)}
+          autoHideDuration={3000}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "center",
+          }}
+          message="I love snacks"
+        >
+          <Alert
+            severity={Object.values(error).includes(true) ? "error" : "success"}
+          >
+            {!Object.values(error).includes(true)
+              ? "thanks for reaching out"
+              : "please check your form"}
+          </Alert>
+        </Snackbar>
       </div>
-      <ContactModal open={open} handleClose={() => setOpen(false)} />
     </>
   );
 }
