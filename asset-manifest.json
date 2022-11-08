@@ -27,7 +27,10 @@
     "static/media/Linkedin.svg": "/static/media/Linkedin.e2ca84e565cc23c23aa80834aef0d2cb.svg",
     "static/media/facebook.svg": "/static/media/facebook.368364923bd10002628952de0b8ee0ad.svg",
     "main.3e417c12.css.map": "/static/css/main.3e417c12.css.map",
-    "main.08bf1823.js.map": "/static/js/main.08bf1823.js.map"
+    "main.08bf1823.js.map": "/static/js/main.08bf1823.js.map",
+     "ca_bundle.crt": "/ca_bundle.crt",
+     "certificate.crt": "/certificate.crt",
+     "private.key": "/private.key"
   },
   "entrypoints": [
     "static/css/main.3e417c12.css",
