@@ -17,7 +17,6 @@ const Home = () => {
   const handleClose = () => setOpen(false);
   return (
     <div
-      data-aos-anchor="Bottom"
       id="home"
       className="header"
       alignItems="center"
@@ -43,11 +42,7 @@ const Home = () => {
             lg={6}
             sx={{ mt: 4, justifyContent: "center" }}
           >
-            <Box
-              data-aos="fade-up"
-              data-aos-anchor-placement="bottom-bottom"
-              alignItems={"center"}
-            >
+            <Box data-aos="fade-up" alignItems={"center"}>
               <h1
                 style={{
                   fontFamily: "Inter",
