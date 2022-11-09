@@ -20,7 +20,6 @@ import {
   SwipeableDrawer,
 } from "@mui/material";
 import { HashLink as MyLink } from "react-router-hash-link";
-import { Link } from "react-router-dom";
 
 const CustomAppBar = (props) => {
   const pages = [
@@ -38,6 +37,9 @@ const CustomAppBar = (props) => {
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+  const handleClick = () => {
+    Navigate("/SellersPage");
   };
 
   return (
@@ -140,21 +142,20 @@ const CustomAppBar = (props) => {
                 textDecoration: "none",
               }}
             >
-              <Link to={"/SellersPage"}>
-                <Button
-                  size="large"
-                  style={{
-                    boxShadow: "none",
-                    borderRadius: "10px",
-                    color: "white",
-                    backgroundColor: "#ec5858",
-                    paddingInline: "27px",
-                    textDecoration: "none",
-                  }}
-                >
-                  Are You a Seller?
-                </Button>
-              </Link>
+              <Button
+                size="large"
+                style={{
+                  boxShadow: "none",
+                  borderRadius: "10px",
+                  color: "white",
+                  backgroundColor: "#ec5858",
+                  paddingInline: "27px",
+                  textDecoration: "none",
+                }}
+                onClick={handleClick}
+              >
+                Are You a Seller?
+              </Button>
             </Box>
           </Toolbar>
         </Container>
