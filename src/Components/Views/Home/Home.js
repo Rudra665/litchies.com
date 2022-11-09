@@ -8,15 +8,15 @@ import "aos/dist/aos.css";
 import Aos from "aos";
 const Home = () => {
   Aos.init({
-    delay: "2",
     duration: "1400",
-    ease: "ease",
+    ease: "ease-in",
   });
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <div
+      data-aos-achor="bottom-up"
       id="home"
       className="header"
       alignItems="center"
@@ -42,18 +42,21 @@ const Home = () => {
             lg={6}
             sx={{ mt: 4, justifyContent: "center" }}
           >
-            <Box data-aos="fade-up" alignItems={"center"}>
+            <Box justifyContent={"center"}>
               <h1
+                data-aos="fade-up"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: "600",
                   fontSize: "7.5vh",
-                  lineHeight: "6.5vh",
+                  lineHeight: "7.5vh",
                 }}
               >
-                Get discovered by customers easily.
+                Get Discovered by Customers Easily.
               </h1>
               <p
+                data-aos="fade-up"
+                data-aos-delay="500"
                 style={{
                   fontWeight: "400",
                   fontSize: "2vh",
@@ -72,6 +75,8 @@ const Home = () => {
                   style={{ textDecoration: "none" }}
                 >
                   <Button
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
                     variant="contained"
                     size="large"
                     style={{
@@ -89,6 +94,8 @@ const Home = () => {
                   </Button>
                 </a>
                 <Button
+                  data-aos="fade-up"
+                  data-aos-delay="1500"
                   size="large"
                   onClick={handleOpen}
                   style={{
@@ -108,12 +115,18 @@ const Home = () => {
           </Grid>
           <Grid item md={6} lg={6} xs={12}>
             <Box
-              data-aos="zoom-in"
               sx={{
                 display: { xs: "none", md: "flex", lg: "block" },
               }}
             >
-              <img src={image} alt="comm" width="100%" height="auto"></img>
+              <img
+                data-aos="zoom-in"
+                data-aos-delay="1500"
+                src={image}
+                alt="comm"
+                width="100%"
+                height="auto"
+              ></img>
             </Box>
           </Grid>
         </Grid>

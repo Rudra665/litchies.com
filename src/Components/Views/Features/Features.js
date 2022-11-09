@@ -11,10 +11,10 @@ import fIcon3 from "../../Image/FeatureIcons/fIcon3.png";
 import fIcon4 from "../../Image/FeatureIcons/fIcon4.png";
 import fIcon5 from "../../Image/FeatureIcons/fIcon5.png";
 import fIcon6 from "../../Image/FeatureIcons/fIcon6.png";
-Aos.init({ delay: "2", duration: "1400", ease: "ease" });
+Aos.init({ delay: "500", duration: "1400", ease: "ease" });
 const Features = () => {
   return (
-    <div id="Features" data-aos-anchor="Bottom" className="second">
+    <div id="Features" className="second">
       <Container>
         <Box>
           <Typography

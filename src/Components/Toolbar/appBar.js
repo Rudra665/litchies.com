@@ -80,24 +80,28 @@ const CustomAppBar = (props) => {
                 sx={{
                   "& .MuiDrawer-paper": {
                     width: "100%",
-                    height: "35%",
+                    height: "36%",
+
                     backgroundColor: "Black",
-                    align: "center",
                   },
                 }}
+                align="center"
                 anchor="Top"
                 open={anchorElNav}
               >
                 {pages.map((page) => (
                   <Link
                     to={page.to}
-                    style={{ textDecoration: "none", color: "grey" }}
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                    }}
                   >
                     <MenuItem
                       key={page.id}
                       onClick={() => handleCloseNavMenu(page)}
                     >
-                      <Typography textAlign="center">{page.name}</Typography>
+                      <Typography>{page.name}</Typography>
                     </MenuItem>
                   </Link>
                 ))}
@@ -105,7 +109,6 @@ const CustomAppBar = (props) => {
             </Box>
             <Box
               sx={{
-                flexGrow: 1,
                 display: { xs: "none", md: "flex" },
                 marginLeft: 5,
               }}

@@ -4,12 +4,13 @@ import data from "./data";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import SimplePaper from "../../Cards/shopsCard";
+import Aos from "aos";
 
 const Shops = () => {
   const [status, setStatus] = React.useState("R");
   const [Data, setData] = React.useState(data);
   const [shop, setShop] = React.useState(1);
-
+  const [isUpdated, setIsUpdated] = React.useState("false");
   const styles = {
     border: "none",
     my: 1,
@@ -29,7 +30,10 @@ const Shops = () => {
   React.useEffect(() => {
     if (status) {
       const filterData = data.filter((item) => item.type === status);
+      setIsUpdated(!isUpdated);
       setData(filterData);
+      console.log("Aos.init", Aos.init());
+      Aos.init();
     }
   }, [status]);
 
@@ -113,14 +117,16 @@ const Shops = () => {
             }}
           >
             {Data.map((D) => (
-              <SimplePaper
-                isShadow={shop === D.id}
-                value={D.id}
-                imgUrl={D.img}
-                name={D.shop_name}
-                name2={D.name}
-                handleChange={handleSelected}
-              />
+              <Box data-aos="flip-up">
+                <SimplePaper
+                  isShadow={shop === D.id}
+                  value={D.id}
+                  imgUrl={D.img}
+                  name={D.shop_name}
+                  name2={D.name}
+                  handleChange={handleSelected}
+                />
+              </Box>
             ))}
           </Box>
         </Box>
