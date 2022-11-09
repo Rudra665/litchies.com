@@ -10,8 +10,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<CustomerPage />}></Route>
-        <Route path="SellersPage" element={<SellersPage />}></Route>
+        <Route path="/" element={<CustomerPage />}></Route>
+        <Route path="/SellersPage" element={<SellersPage />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
