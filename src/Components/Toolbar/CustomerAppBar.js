@@ -140,7 +140,7 @@ const CustomAppBar = (props) => {
                 textDecoration: "none",
               }}
             >
-              <Link to={"SellersPage"}>
+              <Link to={"/SellersPage"}>
                 <Button
                   size="large"
                   style={{
