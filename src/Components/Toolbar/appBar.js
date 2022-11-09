@@ -98,6 +98,7 @@ const CustomAppBar = (props) => {
                     }}
                   >
                     <MenuItem
+                      sx={{ justifyContent: "center" }}
                       key={page.id}
                       onClick={() => handleCloseNavMenu(page)}
                     >
@@ -109,6 +110,7 @@ const CustomAppBar = (props) => {
             </Box>
             <Box
               sx={{
+                flexGrow: 1,
                 display: { xs: "none", md: "flex" },
                 marginLeft: 5,
               }}
