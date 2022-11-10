@@ -26,18 +26,24 @@ export default function SimplePaper(props) {
     >
       {/* <CardActionArea> */}
       <Paper>
-        <Box marginTop={2}>
-          <img width="100%" src={props.imgUrl}></img>
-        </Box>
-        <Box marginBlock="35px">
-          <Typography margin fontWeight={600}>
-            {props.name}
-          </Typography>
+        <Grid container spacing="true">
+          <Grid item>
+            <Box paddingTop={3}>
+              <img width="100%" src={props.imgUrl}></img>
+            </Box>
+          </Grid>
+          <Grid item>
+            <Box marginBlock="35px">
+              <Typography margin fontWeight={600}>
+                {props.name}
+              </Typography>
 
-          <Typography paddingBottom={2} color="#656464">
-            {props.name2}
-          </Typography>
-        </Box>
+              <Typography paddingBottom={2} color="#656464">
+                {props.name2}
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
       </Paper>
       {/* </CardActionArea> */}
     </Box>

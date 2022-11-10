@@ -90,11 +90,7 @@ export default function ContactUsForm() {
     <>
       <div id="Contact">
         <Box sx={{ py: 5 }}>
-          <Container
-            component="main"
-            maxWidth="lg"
-            style={{ paddingBlockStart: "2vh" }}
-          >
+          <Container component="main" maxWidth="lg">
             <CssBaseline />
 
             <div
@@ -137,7 +133,7 @@ export default function ContactUsForm() {
                       We would love to hear from You
                     </Typography>
                     <Box sx={{ p: 4 }}>
-                      <Grid container spacing={1} alignItems="baseline">
+                      <Grid container spacing={1}>
                         <Grid item lg={6} xs={12}>
                           <TextField
                             variant="standard"

@@ -11,11 +11,11 @@ import Video3 from "../../Image/videoImages/vedio3.png";
 Aos.init();
 const featuresImage = (justifyContent, pl) => {
   return (
-    <Grid container item alignItems="center" justifyContent={justifyContent}>
+    <Grid container item justifyContent={justifyContent}>
       <Box p={1} pl={pl} data-aos="flip-up" data-aos-delay="500">
         <img src={Video1} style={{ borderRadius: "20px" }} />
       </Box>
-      <Grid container lg={6} sm={6} xs={12} justifyContent="center">
+      <Grid container item lg={6} sm={6} xs={12} justifyContent="center">
         <Grid item sm={12}>
           <Box data-aos="flip-up" data-aos-delay="1000">
             <img src={Video2} style={{ borderRadius: "20px" }} />
@@ -39,7 +39,7 @@ const About = () => {
       style={{ width: "100%", paddingBlock: "12px" }}
     >
       <Container maxWidth="xl">
-        <Box alignItems="center" marginY="15vh">
+        <Box marginY="15vh">
           <Grid container spacing={2} justifyContent="space-between">
             <Grid item lg={6} xs={12}>
               <Box align="left" sx={{ lineHeight: "3vh" }}>

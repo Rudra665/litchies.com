@@ -2,7 +2,7 @@ import React from "react";
 import CustomerAppBar from "./Components/Toolbar/CustomerAppBar";
 import "./app.css";
 import Home from "./Components/customerViews/Home/Home";
-import Products from "./Components/customerViews/Shops/Products";
+import Products from "./Components/customerViews/Products/Products";
 import Features from "./Components/customerViews/Features/Features";
 import ContactUsForm from "./Components/form/CustomerContactUsForm";
 import About from "./Components/customerViews/About/About";

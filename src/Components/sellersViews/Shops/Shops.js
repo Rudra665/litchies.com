@@ -4,7 +4,6 @@ import data from "./data";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import SimplePaper from "../../Cards/shopsCard";
-import Aos from "aos";
 
 const Shops = () => {
   const [status, setStatus] = React.useState("R");
@@ -32,23 +31,22 @@ const Shops = () => {
       const filterData = data.filter((item) => item.type === status);
       setIsUpdated(!isUpdated);
       setData(filterData);
-      console.log("Aos.init", Aos.init());
-      Aos.init();
     }
   }, [status]);
 
   return (
-    <div id="Shop" paddingBlockStart="90px">
+    <div id="Shop">
       <Container sx={{ marginY: 3 }}>
         <Box align="center">
-          {/* <Typography color="#ec5858" fontWeight={550}>
-            
-          </Typography> */}
+          <Typography color="#ec5858" fontWeight={550}>
+            Valuable Shops
+          </Typography>
           <Typography variant="h4" fontWeight={700}>
-            Products
+            Our Active Shops
           </Typography>
           <Typography color="#656464" sx={{ mt: 2 }}>
-            Some of the best Products on Our Applications
+            Our shopkeerps update their collection and prices regularly
+            <br /> for the best shopping experience on LITCHIES.
           </Typography>
           <Box sx={{ my: 3 }}>
             <Paper
@@ -108,7 +106,7 @@ const Shops = () => {
           </Box>
           <Box
             display="flex"
-            exclusive
+            exclusive="true"
             label="shops"
             sx={{
               justifyContent: { lg: "center", xs: "flexStart" },
@@ -116,7 +114,7 @@ const Shops = () => {
             }}
           >
             {Data.map((D) => (
-              <Box data-aos="flip-up">
+              <Box>
                 <SimplePaper
                   isShadow={shop === D.id}
                   value={D.id}

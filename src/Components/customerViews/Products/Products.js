@@ -1,14 +1,13 @@
 import { Button, Paper, Typography } from "@mui/material";
-import data from "./data";
+import ProductData from "./ProductData";
 import { Box, Container } from "@mui/system";
 import React from "react";
-import SimplePaper from "../../Cards/shopsCard";
-import Aos from "aos";
+import SimplePaper from "../../Cards/ProductCard";
 
 const Shops = () => {
   const [status, setStatus] = React.useState("R");
-  const [Data, setData] = React.useState(data);
-  const [shop, setShop] = React.useState(1);
+  const [Data, setData] = React.useState(ProductData);
+  const [products, setProduct] = React.useState(1);
   const [isUpdated, setIsUpdated] = React.useState("false");
   const styles = {
     border: "none",
@@ -23,32 +22,29 @@ const Shops = () => {
     },
   };
   const handleSelected = (value) => {
-    setShop(value);
+    setProduct(value);
   };
 
   React.useEffect(() => {
     if (status) {
-      const filterData = data.filter((item) => item.type === status);
+      const filterData = ProductData.filter((item) => item.type === status);
       setIsUpdated(!isUpdated);
       setData(filterData);
-      console.log("Aos.init", Aos.init());
-      Aos.init();
     }
   }, [status]);
 
   return (
-    <div id="Products" style={{ paddingBlock: 12 }}>
+    <div id="Products" style={{ paddingBlock: 40 }}>
       <Container sx={{ marginY: 3 }}>
         <Box align="center">
           <Typography color="#ec5858" fontWeight={550}>
-            Valuable Shops
+            Best Products
           </Typography>
           <Typography variant="h4" fontWeight={700}>
-            Our Active Shops
+            Products
           </Typography>
           <Typography color="#656464" sx={{ mt: 2 }}>
-            Our shopkeerps update their collection and prices regularly
-            <br /> for the best shopping experience on LITCHIES.
+            Some of the best Products out there in Agra
           </Typography>
           <Box sx={{ my: 3 }}>
             <Paper
@@ -108,7 +104,7 @@ const Shops = () => {
           </Box>
           <Box
             display="flex"
-            exclusive
+            exclusive="true"
             label="shops"
             sx={{
               justifyContent: { lg: "center", xs: "flexStart" },
@@ -116,9 +112,9 @@ const Shops = () => {
             }}
           >
             {Data.map((D) => (
-              <Box data-aos="flip-up">
+              <Box ProductD ata-aos="flip-up">
                 <SimplePaper
-                  isShadow={shop === D.id}
+                  isShadow={products === D.id}
                   value={D.id}
                   imgUrl={D.img}
                   name={D.shop_name}

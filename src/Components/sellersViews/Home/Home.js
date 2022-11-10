@@ -19,10 +19,10 @@ const Home = () => {
       data-aos-achor="bottom-up"
       id="home"
       className="header"
-      alignItems="center"
       style={{
         height: "100vh",
         width: "100%",
+        paddingBlockStart: "90px",
       }}
     >
       <Container maxWidth="xl">
@@ -30,9 +30,8 @@ const Home = () => {
           container
           spacing={2}
           sx={{
-            mt: "3vh",
+            mt: "auto",
             justifyContent: "space-around",
-            alignItems: "center",
           }}
         >
           <Grid
@@ -42,7 +41,7 @@ const Home = () => {
             lg={6}
             sx={{ mt: 4, justifyContent: "center" }}
           >
-            <Box justifyContent={"center"}>
+            <Box justifyContent={"center"} sx={{ mt: 3 }}>
               <h1
                 data-aos="fade-up"
                 style={{

@@ -19,7 +19,6 @@ const Home = () => {
       data-aos-achor="bottom-up"
       id="home"
       className="header"
-      alignItems="center"
       style={{
         height: "100vh",
         width: "100%",
@@ -30,9 +29,8 @@ const Home = () => {
           container
           spacing={2}
           sx={{
-            mt: "3vh",
+            mt: "12vh",
             justifyContent: "space-around",
-            alignItems: "center",
           }}
         >
           <Grid

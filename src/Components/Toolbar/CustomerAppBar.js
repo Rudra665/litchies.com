@@ -10,15 +10,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 
-import {
-  AppBar,
-  CssBaseline,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  SwipeableDrawer,
-} from "@mui/material";
+import { AppBar, CssBaseline, SwipeableDrawer } from "@mui/material";
 import { HashLink as MyLink } from "react-router-hash-link";
 
 const CustomAppBar = (props) => {
@@ -89,11 +81,13 @@ const CustomAppBar = (props) => {
                   },
                 }}
                 align="center"
-                anchor="Top"
+                anchor="top"
                 open={anchorElNav}
               >
                 {pages.map((page) => (
                   <MyLink
+                    key={page.toString()}
+                    smooth
                     to={page.to}
                     style={{
                       textDecoration: "none",
@@ -119,7 +113,12 @@ const CustomAppBar = (props) => {
               }}
             >
               {pages.map((page) => (
-                <MyLink to={page.to} smooth style={{ textDecoration: "none" }}>
+                <MyLink
+                  to={page.to}
+                  key={page.toString()}
+                  smooth
+                  style={{ textDecoration: "none" }}
+                >
                   <Button
                     key={page.id}
                     onClick={handleCloseNavMenu}

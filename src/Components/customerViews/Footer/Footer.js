@@ -20,7 +20,7 @@ const Footer = () => {
     <>
       <div className="footer" style={{ width: "100%" }}>
         <Container maxWidth="xl">
-          <Grid container alignItems="center" justifyContent="center">
+          <Grid container justifyContent="center">
             <Hidden mdDown>
               <Grid item lg={6} xs={12} align="left" mt={2}>
                 <img src={Logo} width="20%" height="100%"></img>
@@ -96,7 +96,7 @@ const Footer = () => {
         }}
       >
         <Typography color="#ffff">
-          copyright <span>&copy;</span> 2022
+          Copyright <span>&copy;</span> 2022
         </Typography>
       </div>
     </>
