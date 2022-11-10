@@ -10,8 +10,9 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 
-import { AppBar, CssBaseline, SwipeableDrawer } from "@mui/material";
+import { AppBar, CssBaseline, Hidden, SwipeableDrawer } from "@mui/material";
 import { HashLink as MyLink } from "react-router-hash-link";
+import { fontSize, fontWeight } from "@mui/system";
 
 const CustomAppBar = (props) => {
   const pages = [
@@ -56,6 +57,7 @@ const CustomAppBar = (props) => {
               }}
             >
               <CssBaseline />
+             
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -75,7 +77,7 @@ const CustomAppBar = (props) => {
                 sx={{
                   "& .MuiDrawer-paper": {
                     width: "100%",
-                    height: "36%",
+                    height: "fit-content",
 
                     backgroundColor: "Black",
                   },
@@ -105,6 +107,7 @@ const CustomAppBar = (props) => {
                 ))}
               </SwipeableDrawer>
             </Box>
+            
             <Box
               sx={{
                 flexGrow: 1,

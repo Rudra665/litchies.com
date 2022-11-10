@@ -8,7 +8,7 @@ import ContactUsForm from "./Components/form/CustomerContactUsForm";
 import About from "./Components/customerViews/About/About";
 import Footer from "./Components/customerViews/Footer/Footer";
 import JoinUsPage from "./Components/customerViews/JoinUs/JoinUsPage";
-
+import AreYouSeller from "./Components/customerViews/AreYouSeller/AreYouSeller";
 const App = () => {
   return (
     <>
@@ -23,6 +23,8 @@ const App = () => {
       <Products />
 
       <JoinUsPage />
+
+      {/* <AreYouSeller/> */}
 
       <ContactUsForm />
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CustomAppBar from "./Components/Toolbar/appBar";
 import "./app.css";
 import Home from "./Components/sellersViews/Home/Home";
@@ -11,6 +11,7 @@ import JoinUsPage from "./Components/sellersViews/JoinUs/JoinUsPage";
 
 
 const SellersPage = () => {
+  useEffect(()=>{window.scrollTo(0 ,0)},[])
   return (
     <>
       <CustomAppBar />

@@ -140,7 +140,7 @@ export default function ContactUsForm() {
                             fullWidth
                             required
                             error={error.name}
-                            helperText={error.name && "NAME CANNOT BE EMPTY !"}
+                            helperText={error.name && "Invalid Name !"}
                             type="text"
                             id="Name"
                             label="Your Name"
@@ -174,13 +174,14 @@ export default function ContactUsForm() {
                           <TextField
                             variant="standard"
                             fullWidth
+                            inputProps={{ maxLength: 12 }}
                             required
                             id="mobile"
                             type="number"
                             label="Mobile"
                             name="mobile"
                             helperText={
-                              error.mobile && "MOBILE CANNOT BE EMPTY !"
+                              error.mobile && "Invalid Mobile !"
                             }
                             error={error.mobile}
                             value={mobile}
@@ -196,7 +197,7 @@ export default function ContactUsForm() {
                             id="email"
                             type="email"
                             error={error.email}
-                            helperText={error.email && "EMAIL CANNOT BE EMPTY!"}
+                            helperText={error.email && " Invalid Email !"}
                             label="Email"
                             name="email"
                             value={email}

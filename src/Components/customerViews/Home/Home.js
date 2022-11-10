@@ -1,4 +1,4 @@
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, Hidden } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import ShareModal from "../../Modal/ShareModal";
@@ -6,21 +6,26 @@ import image from "../../Image/image.png";
 import "./Home.css";
 import "aos/dist/aos.css";
 import Aos from "aos";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   Aos.init({
-    duration: "1400",
+    duration: "500",
     ease: "ease-in",
   });
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const Navigate=useNavigate()
+  const handleClick=()=>{
+    Navigate("/SellersPage");
+  }
   return (
     <div
       data-aos-achor="bottom-up"
       id="home"
       className="header"
       style={{
-        height: "100vh",
+        height: "90vh",
         width: "100%",
       }}
     >
@@ -83,7 +88,7 @@ const Home = () => {
                       color: "white",
                       backgroundColor: "#ec5858",
                       marginRight: 5,
-
+                      marginBlock:4,
                       width: "171px",
                       // height: "5vh",
                     }}
@@ -107,6 +112,28 @@ const Home = () => {
                 >
                   Invite Friends
                 </Button>
+                 <Hidden mdUp>
+              <Button
+              size="small"
+                 data-aos="fade-up"
+                 data-aos-delay="1700"
+                 variant="outlined"
+                style={{
+                  boxShadow: "none",
+                  borderRadius: "10px",
+                  color: "#ec5858",
+                  borderColor:"#ec5858",
+                  paddingInline: "12px",
+                  textDecoration: "none",
+                  height:"6vh",
+                  fontSize:"15px",
+                  fontWeight:600
+                }}
+                onClick={handleClick}
+              >
+                Are You A Seller
+              </Button>
+              </Hidden>
                 <ShareModal open={open} onClose={handleClose}></ShareModal>
               </Box>
             </Box>

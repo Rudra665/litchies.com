@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 import Aos from "aos";
 const Home = () => {
   Aos.init({
-    duration: "1400",
+    duration: "500",
     ease: "ease-in",
   });
   const [open, setOpen] = React.useState(false);
@@ -84,6 +84,7 @@ const Home = () => {
                       color: "white",
                       backgroundColor: "#ec5858",
                       marginRight: 5,
+                      margin:1,
 
                       width: "160px",
                       // height: "5vh",
