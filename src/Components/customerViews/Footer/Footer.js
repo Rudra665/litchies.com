@@ -22,17 +22,17 @@ const Footer = () => {
         <Container maxWidth="xl">
           <Grid container justifyContent="center">
             <Hidden mdDown>
-              <Grid item lg={6} xs={12} align="left" mt={2}>
+              <Grid item lg={6} xs={12} align="left" m={2}>
                 <img src={Logo} width="20%" height="100%"></img>
               </Grid>
             </Hidden>
             <Hidden smUp>
-              <Grid item lg={4} xs={12} align="center" mt={2}>
+              <Grid item lg={4} xs={12} align="center" m={2}>
                 <img src={Logo} width="30%" height="100%"></img>
               </Grid>
             </Hidden>
             <Hidden smDown mdUp>
-              <Grid item lg={4} xs={12} align="center" mt={2}>
+              <Grid item lg={4} xs={12} align="center" m={2}>
                 <img src={Logo} width="15%" height="100%"></img>
               </Grid>
             </Hidden>
