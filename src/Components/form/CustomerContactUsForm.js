@@ -243,8 +243,8 @@ export default function ContactUsForm() {
             severity={ Object.values(error).includes(true) || Object.values(fields).includes("") ? "error" : "success"}
           >
             {Object.values(error).includes(true) && !Object.values(fields).includes("")
-              ? "please check your form"
-              : "thanks for reaching out"}
+              ? "thanks for reaching out"
+              : "please check your form"}
           </Alert>
         </Snackbar>
       </div>
