@@ -242,7 +242,7 @@ export default function ContactUsForm() {
           <Alert
             severity={ Object.values(error).includes(true) || Object.values(fields).includes("") ? "error" : "success"}
           >
-            {Object.values(error).includes(true) && !Object.values(fields).includes("")
+            {Object.values(error).includes(true) || !Object.values(fields).includes("")
               ? "thanks for reaching out"
               : "please check your form"}
           </Alert>
