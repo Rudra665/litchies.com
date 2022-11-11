@@ -58,10 +58,7 @@ export default function ContactUsForm() {
         comment: "",
       });
     }
-    
-      
       setDisable(true);
-   
   };
 
   const handleChangeFields = (e) => {
@@ -147,7 +144,7 @@ export default function ContactUsForm() {
                             variant="standard"
                             fullWidth
                             required
-                            error={error.name && disable}
+                            error={error.name || disable}
                             helperText={error.name && "Invalid Name !"}
                             type="text"
                             id="Name"
@@ -173,7 +170,7 @@ export default function ContactUsForm() {
                             helperText={
                               error.mobile && "Invalid Mobile !"
                             }
-                            error={error.mobile && disable}
+                            error={error.mobile || disable}
                             value={mobile}
                             autoComplete="mobile"
                             onChange={handleChangeFields}
@@ -186,7 +183,7 @@ export default function ContactUsForm() {
                             fullWidth
                             id="email"
                             type="email"
-                            error={error.email && disable}
+                            error={error.email || disable}
                             helperText={error.email && " Invalid Email !"}
                             label="Email"
                             name="email"
@@ -242,9 +239,9 @@ export default function ContactUsForm() {
           
         >
           <Alert
-            severity={ !Object.values(error).includes(true) && !Object.values(fields).includes("") ? "error" : "success"}
+            severity={ Object.values(error).includes(true) || Object.values(fields).includes("") ? "error" : "success"}
           >
-            {!Object.values(error).includes(true) && !Object.values(fields).includes("")
+            {Object.values(error).includes(true) && !Object.values(fields).includes("")
               ? "please check your form"
               : "thanks for reaching out"}
           </Alert>
