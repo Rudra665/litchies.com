@@ -10,9 +10,10 @@ import axios from "axios";
 import ContactModal from "../Modal/ContactModal";
 import { Box } from "@mui/system";
 import { Alert, Snackbar } from "@mui/material";
+import { DisabledByDefault, HelpOutline } from "@mui/icons-material";
 export default function ContactUsForm() {
   const [open, setOpen] = React.useState(false);
-  const [disable, setDisable] = React.useState(true);
+  const [disable, setDisable] = React.useState(false);
   const [fields, setFields] = React.useState({
     name: "",
     email: "",
@@ -29,9 +30,11 @@ export default function ContactUsForm() {
   });
 
   const handleSubmit = () => {
-    console.log(!Object.values(error));
+    
     setOpen(true);
-    if (!Object.values(error).includes(true)) {
+   
+    if (!Object.values(error).includes(true) && !Object.values(fields).includes("")) {
+      
       const data = new FormData();
       data.append("name", name);
       data.append("email", email);
@@ -55,6 +58,10 @@ export default function ContactUsForm() {
         comment: "",
       });
     }
+    
+      
+      setDisable(true);
+   
   };
 
   const handleChangeFields = (e) => {
@@ -66,6 +73,7 @@ export default function ContactUsForm() {
     ) {
       setDisable(false);
       if (e.target.name === "mobile") {
+        
         if (e.target.value.length !== 10) {
           setError({ ...error, [e.target.name]: true });
         } else {
@@ -139,7 +147,7 @@ export default function ContactUsForm() {
                             variant="standard"
                             fullWidth
                             required
-                            error={error.name}
+                            error={error.name && disable}
                             helperText={error.name && "Invalid Name !"}
                             type="text"
                             id="Name"
@@ -151,25 +159,7 @@ export default function ContactUsForm() {
                           />
                         </Grid>
 
-                        {/* <Grid item lg={6} xs={12}>
-                          <TextField
-                            // sx={{ my: "1" }}
-                            variant="standard"
-                            fullWidth
-                            required
-                            id="store"
-                            type="store"
-                            helperText={
-                              error.store && "STORE CANNOT BE EMPTY !"
-                            }
-                            label="Your Store Name"
-                            name="store"
-                            error={error.store}
-                            value={store}
-                            autoComplete="store"
-                            onChange={handleChangeFields}
-                          />
-                        </Grid> */}
+                      
                         <Grid item lg={6} xs={12}>
                           <TextField
                             variant="standard"
@@ -183,7 +173,7 @@ export default function ContactUsForm() {
                             helperText={
                               error.mobile && "Invalid Mobile !"
                             }
-                            error={error.mobile}
+                            error={error.mobile && disable}
                             value={mobile}
                             autoComplete="mobile"
                             onChange={handleChangeFields}
@@ -196,7 +186,7 @@ export default function ContactUsForm() {
                             fullWidth
                             id="email"
                             type="email"
-                            error={error.email}
+                            error={error.email && disable}
                             helperText={error.email && " Invalid Email !"}
                             label="Email"
                             name="email"
@@ -220,7 +210,7 @@ export default function ContactUsForm() {
                           <Box mt={4}>
                             <Button
                               onClick={handleSubmit}
-                              disabled={disable ? true : false}
+                              
                               style={{
                                 borderRadius: "10px",
                                 paddingInline: "10%",
@@ -249,14 +239,14 @@ export default function ContactUsForm() {
             vertical: "bottom",
             horizontal: "center",
           }}
-          message="I love snacks"
+          
         >
           <Alert
-            severity={Object.values(error).includes(true) ? "error" : "success"}
+            severity={ !Object.values(error).includes(true) && !Object.values(fields).includes("") ? "error" : "success"}
           >
-            {!Object.values(error).includes(true)
-              ? "thanks for reaching out"
-              : "please check your form"}
+            {!Object.values(error).includes(true) && !Object.values(fields).includes("")
+              ? "please check your form"
+              : "thanks for reaching out"}
           </Alert>
         </Snackbar>
       </div>

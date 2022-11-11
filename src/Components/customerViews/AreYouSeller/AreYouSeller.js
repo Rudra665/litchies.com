@@ -19,7 +19,7 @@ const AreYouSeller = () => {
        <Typography variant="h3"  align="center"> Are You A Seller ? </Typography>
        </Box>
        <Box marginBlock="3" data-aos="fade-up" data-aos-delay="200" >
-        <Link to={"/SellersPage"} style={{textDecoration:"none"}}>
+        <Link to={"/Seller"} style={{textDecoration:"none"}}>
         <Button size="large" variant='contained' sx={{backgroundColor:"#ec5858", borderRadius:3}} >Join Us</Button> 
         </Link></Box>
         </Box>

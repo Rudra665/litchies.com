@@ -7,16 +7,13 @@ import "./Home.css";
 import "aos/dist/aos.css";
 import Aos from "aos";
 const Home = () => {
-  Aos.init({
-    duration: "500",
-    ease: "ease-in",
-  });
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
+   
     <div
-      data-aos-achor="bottom-up"
       id="home"
       className="header"
       style={{
@@ -39,9 +36,10 @@ const Home = () => {
             xs={12}
             md={6}
             lg={6}
-            sx={{ mt: 4, justifyContent: "center" }}
+            alignItems="center"
+            sx={{ mt: 4, justifyContent: "center", display:"flex" }}
           >
-            <Box justifyContent={"center"} sx={{ mt: 3 }}>
+            <Box justifyContent={"center"} sx={{ mt: 3 }} >
               <h1
                 data-aos="fade-up"
                 style={{
@@ -83,8 +81,7 @@ const Home = () => {
                       borderRadius: "10px",
                       color: "white",
                       backgroundColor: "#ec5858",
-                      marginRight: 5,
-                      margin:1,
+                      margin:5,
 
                       width: "160px",
                       // height: "5vh",
@@ -104,6 +101,7 @@ const Home = () => {
                     color: "white",
                     backgroundColor: "#ec5858",
                     width: "160px",
+                    margin:5,
                     // height: "5vh",
                   }}
                 >

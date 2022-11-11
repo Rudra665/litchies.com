@@ -11,7 +11,7 @@ import Video3 from "../../Image/videoImages/vedio3.png";
 Aos.init();
 const featuresImage = (justifyContent, pl) => {
   return (
-    <Grid container item justifyContent={justifyContent}>
+    <Grid container item alignItems="center" justifyContent={justifyContent}>
       <Box p={1} pl={pl} data-aos="flip-up" data-aos-delay="500">
         <img src={Video1} style={{ borderRadius: "20px" }} />
       </Box>

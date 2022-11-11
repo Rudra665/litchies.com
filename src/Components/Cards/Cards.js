@@ -13,7 +13,6 @@ const FeaturesCard = (props) => {
   return (
     <Card
       data-aos="flip-up"
-      data-aos-anchor-placement="bottom-bottom"
       sx={{
         m: 2,
         boxShadow: "14px 22px 52px -12px rgba(127, 127, 127, 0.13)",

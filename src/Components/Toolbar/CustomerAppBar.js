@@ -32,7 +32,7 @@ const CustomAppBar = (props) => {
     setAnchorElNav(null);
   };
   const handleClick = () => {
-    Navigate("/SellersPage");
+    Navigate("/Seller");
   };
 
   return (

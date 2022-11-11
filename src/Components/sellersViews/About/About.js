@@ -11,18 +11,18 @@ import Video3 from "../../Image/videoImages/vedio3.png";
 Aos.init();
 const featuresImage = (justifyContent, pl) => {
   return (
-    <Grid container item justifyContent={justifyContent}>
-      <Box p={1} pl={pl} data-aos="flip-up" data-aos-delay="500">
+    <Grid container item alignItems="center" justifyContent={justifyContent}>
+      <Box p={1} pl={pl}  data-aos="flip-up" data-aos-delay="100">
         <img src={Video1} style={{ borderRadius: "20px" }} />
       </Box>
       <Grid container item lg={6} sm={6} xs={12} justifyContent="center">
         <Grid item sm={12}>
-          <Box data-aos="flip-up" data-aos-delay="1000">
+          <Box data-aos="flip-up" data-aos-delay="200">
             <img src={Video2} style={{ borderRadius: "20px" }} />
           </Box>
         </Grid>
         <Grid item sm={12}>
-          <Box data-aos="flip-up" data-aos-delay="1500">
+          <Box data-aos="flip-up" data-aos-delay="300">
             <img src={Video3} style={{ borderRadius: "20px" }} />
           </Box>
         </Grid>
@@ -35,7 +35,7 @@ const About = () => {
   return (
     <div
       id="About"
-      data-aos-anchor-palcement="up"
+      
       style={{ width: "100%", paddingBlock: "12px" }}
     >
       <Container maxWidth="xl">
@@ -51,7 +51,7 @@ const About = () => {
                 </Typography>
                 <Typography
                   data-aos="fade-up"
-                  data-aos-delay="500"
+                  data-aos-delay="100"
                   marginY={2}
                   variant="h3"
                   style={{ fontWeight: 600 }}
@@ -60,7 +60,7 @@ const About = () => {
                 </Typography>
                 <Typography
                   data-aos="fade-up"
-                  data-aos-delay="1000"
+                  data-aos-delay="200"
                   marginTop={5}
                   color="grey"
                 >
@@ -72,19 +72,19 @@ const About = () => {
                   aria-labelledby="decorated-list-demo"
                   sx={{ "--List-decorator-size": "32px" }}
                 >
-                  <ListItem data-aos="fade-up" data-aos-delay="1200">
+                  <ListItem data-aos="fade-up" data-aos-delay="300">
                     <ListItemDecorator>
                       <img src={Bullet}></img>
                     </ListItemDecorator>
                     Grow your organic customers base.
                   </ListItem>
-                  <ListItem data-aos="fade-up" data-aos-delay="1400">
+                  <ListItem data-aos="fade-up" data-aos-delay="350">
                     <ListItemDecorator>
                       <img src={Bullet}></img>
                     </ListItemDecorator>
                     Zero budget digital marketing.
                   </ListItem>
-                  <ListItem data-aos="fade-up" data-aos-delay="1600">
+                  <ListItem data-aos="fade-up" data-aos-delay="540">
                     <ListItemDecorator>
                       <img src={Bullet}></img>
                     </ListItemDecorator>

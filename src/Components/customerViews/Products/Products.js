@@ -105,6 +105,7 @@ const Shops = () => {
           <Box
             display="flex"
             exclusive="true"
+            
             label="shops"
             sx={{
               justifyContent: { lg: "center", xs: "flexStart" },

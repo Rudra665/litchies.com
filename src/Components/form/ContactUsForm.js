@@ -12,7 +12,7 @@ import { Box } from "@mui/system";
 import { Alert, Snackbar } from "@mui/material";
 export default function ContactUsForm() {
   const [open, setOpen] = React.useState(false);
-  const [disable, setDisable] = React.useState(true);
+  const [disable, setDisable] = React.useState(false);
   const [fields, setFields] = React.useState({
     name: "",
     email: "",
@@ -29,9 +29,9 @@ export default function ContactUsForm() {
   });
 
   const handleSubmit = () => {
-    console.log(!Object.values(error));
+    
     setOpen(true);
-    if (!Object.values(error).includes(true)) {
+    if (!Object.values(error).includes(true)&& !Object.values(fields).includes("") ) {
       const data = new FormData();
       data.append("name", name);
       data.append("email", email);
@@ -55,6 +55,9 @@ export default function ContactUsForm() {
         comment: "",
       });
     }
+    console.log(disable)
+      setDisable(true);
+    
   };
 
   const handleChangeFields = (e) => {
@@ -64,14 +67,16 @@ export default function ContactUsForm() {
       e.target.name === "store" ||
       e.target.name === "email"
     ) {
-      setDisable(false);
+      setDisable(false)
       if (e.target.name === "mobile") {
+        
         if (e.target.value.length !== 10) {
           setError({ ...error, [e.target.name]: true });
         } else {
           setError({ ...error, [e.target.name]: false });
         }
       } else if (e.target.name === "email") {
+        
         if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(e.target.value))
           setError({ ...error, [e.target.name]: false });
         else {
@@ -139,8 +144,8 @@ export default function ContactUsForm() {
                             variant="standard"
                             fullWidth
                             required
-                            error={error.name}
-                            helperText={error.name && "NAME CANNOT BE EMPTY !"}
+                            error={error.name || disable}
+                            helperText={error.name && "Invalid Name"}
                             type="text"
                             id="Name"
                             label="Your Name"
@@ -155,10 +160,11 @@ export default function ContactUsForm() {
                             // sx={{ my: "1" }}
                             variant="standard"
                             fullWidth
+                            required
                             id="email"
                             type="email"
-                            error={error.email}
-                            helperText={error.email && "EMAIL CANNOT BE EMPTY!"}
+                            error={error.email || disable}
+                            helperText={error.email && "Invalid Email"}
                             label="Email"
                             name="email"
                             value={email}
@@ -175,11 +181,11 @@ export default function ContactUsForm() {
                             id="store"
                             type="store"
                             helperText={
-                              error.store && "STORE CANNOT BE EMPTY !"
+                              error.store && "Invalid Store name !"
                             }
                             label="Your Store Name"
                             name="store"
-                            error={error.store}
+                            error={error.store || disable}
                             value={store}
                             autoComplete="store"
                             onChange={handleChangeFields}
@@ -195,9 +201,9 @@ export default function ContactUsForm() {
                             label="Mobile"
                             name="mobile"
                             helperText={
-                              error.mobile && "MOBILE CANNOT BE EMPTY !"
+                              error.mobile && "Invalid Mobile !"
                             }
-                            error={error.mobile}
+                            error={error.mobile || disable}
                             value={mobile}
                             autoComplete="mobile"
                             onChange={handleChangeFields}
@@ -218,7 +224,7 @@ export default function ContactUsForm() {
                           <Box mt={4}>
                             <Button
                               onClick={handleSubmit}
-                              disabled={disable ? true : false}
+                              
                               style={{
                                 borderRadius: "10px",
                                 paddingInline: "10%",
@@ -250,9 +256,9 @@ export default function ContactUsForm() {
           message="I love snacks"
         >
           <Alert
-            severity={Object.values(error).includes(true) ? "error" : "success"}
+            severity={Object.values(error).includes(true) || Object.values(fields).includes("") ? "error" : "success"}
           >
-            {!Object.values(error).includes(true)
+            {Object.values(error).includes(true) || !Object.values(fields).includes("") 
               ? "thanks for reaching out"
               : "please check your form"}
           </Alert>

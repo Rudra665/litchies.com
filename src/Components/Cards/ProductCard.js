@@ -34,7 +34,7 @@ export default function SimplePaper(props) {
           </Grid>
           <Grid item>
             <Box marginBlock="35px">
-              <Typography margin fontWeight={600}>
+              <Typography margin fontWeight={600} >
                 {props.name}
               </Typography>
 

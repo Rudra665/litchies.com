@@ -17,11 +17,11 @@ const Home = () => {
   const handleClose = () => setOpen(false);
   const Navigate=useNavigate()
   const handleClick=()=>{
-    Navigate("/SellersPage");
+    Navigate("/Seller");
   }
   return (
     <div
-      data-aos-achor="bottom-up"
+      
       id="home"
       className="header"
       style={{
@@ -40,12 +40,36 @@ const Home = () => {
         >
           <Grid
             item
+            display="flex"
             xs={12}
             md={6}
             lg={6}
-            sx={{ mt: 4, justifyContent: "center" }}
+            sx={{ mt: 4,alignItems:"center" , justifyContent: "center" }}
           >
-            <Box justifyContent={"center"}>
+          
+              
+             
+
+            <Box justifyContent="center" alignItems="center">
+            <Button
+            
+            data-aos="fade-up"
+           style={{
+             boxShadow: "none",
+             borderRadius: "20px",
+             color: "#ec5858",
+             
+             paddingInline: "15px",
+             textDecoration: "none",
+             backgroundColor:"#fdeeee",
+             height:"3.65vh",
+             fontSize:"16px",
+            
+           }}
+           onClick={handleClick}
+         >
+           Are You A Seller ?
+         </Button>
               <h1
                 data-aos="fade-up"
                 style={{
@@ -112,28 +136,7 @@ const Home = () => {
                 >
                   Invite Friends
                 </Button>
-                 <Hidden mdUp>
-              <Button
-              size="small"
-                 data-aos="fade-up"
-                 data-aos-delay="1700"
-                 variant="outlined"
-                style={{
-                  boxShadow: "none",
-                  borderRadius: "10px",
-                  color: "#ec5858",
-                  borderColor:"#ec5858",
-                  paddingInline: "12px",
-                  textDecoration: "none",
-                  height:"6vh",
-                  fontSize:"15px",
-                  fontWeight:600
-                }}
-                onClick={handleClick}
-              >
-                Are You A Seller
-              </Button>
-              </Hidden>
+                 
                 <ShareModal open={open} onClose={handleClose}></ShareModal>
               </Box>
             </Box>
