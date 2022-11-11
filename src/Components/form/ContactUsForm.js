@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Contact from "../Image/contactUs/image.jpg";
 import Container from "@mui/material/Container";
 import axios from "axios";
-import ContactModal from "../Modal/ContactModal";
+
 import { Box } from "@mui/system";
 import { Alert, Snackbar } from "@mui/material";
 export default function ContactUsForm() {
@@ -102,6 +102,7 @@ export default function ContactUsForm() {
               style={{
                 paddingY: 24,
                 boxShadow: "0 14px 12px  rgba(116, 115, 128, 0.1)",
+                borderRadius:15,
                 backgroundColor: "white",
               }}
             >
