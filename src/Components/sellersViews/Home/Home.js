@@ -67,7 +67,7 @@ const Home = () => {
               </p>
               <Box>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.atflabs.litchies"
+                  href="https://play.google.com/store/apps/details?id=com.litchies"
                   target={"_blank"}
                   style={{ textDecoration: "none" }}
                 >

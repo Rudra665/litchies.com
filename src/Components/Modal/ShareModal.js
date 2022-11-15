@@ -31,7 +31,7 @@ const style = {
 
 export default function ShareModal(props) {
   const shareUrl =
-    "https://play.google.com/store/apps/details?id=com.atflabs.litchies";
+    "https://play.google.com/store/apps/details?id=com.litchies";
   return (
     <div>
       <Modal

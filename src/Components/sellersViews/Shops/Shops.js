@@ -113,14 +113,14 @@ const Shops = () => {
               overflowX: "scroll",
             }}
           >
-            {Data.map((D) => (
+            {Data.map((L) => (
               <Box>
                 <SimplePaper
-                  isShadow={shop === D.id}
-                  value={D.id}
-                  imgUrl={D.img}
-                  name={D.shop_name}
-                  name2={D.name}
+                  isShadow={shop === L.id}
+                  value={L.id}
+                  imgUrl={L.img}
+                  name={L.shop_name}
+                  name2={L.name}
                   handleChange={handleSelected}
                 />
               </Box>

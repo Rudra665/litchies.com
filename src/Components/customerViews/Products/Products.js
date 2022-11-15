@@ -105,7 +105,7 @@ const Shops = () => {
           <Box
             display="flex"
             exclusive="true"
-            
+
             label="shops"
             sx={{
               justifyContent: { lg: "center", xs: "flexStart" },
@@ -113,7 +113,7 @@ const Shops = () => {
             }}
           >
             {Data.map((D) => (
-              <Box ProductD ata-aos="flip-up">
+              <Box ata-aos="flip-up">
                 <SimplePaper
                   isShadow={products === D.id}
                   value={D.id}

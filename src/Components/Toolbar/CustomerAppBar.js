@@ -86,11 +86,11 @@ const CustomAppBar = (props) => {
                 anchor="top"
                 open={anchorElNav}
               >
-                {pages.map((page) => (
+                {pages.map((Page) => (
                   <MyLink
-                    key={page.toString()}
+                    key={Page.toString()}
                     smooth
-                    to={page.to}
+                    to={Page.to}
                     style={{
                       textDecoration: "none",
                       color: "white",
@@ -98,10 +98,10 @@ const CustomAppBar = (props) => {
                   >
                     <MenuItem
                       sx={{ justifyContent: "center" }}
-                      key={page.id}
-                      onClick={() => handleCloseNavMenu(page)}
+                      key={Page.id}
+                      onClick={() => handleCloseNavMenu(Page)}
                     >
-                      <Typography>{page.name}</Typography>
+                      <Typography>{Page.name}</Typography>
                     </MenuItem>
                   </MyLink>
                 ))}

@@ -15,13 +15,13 @@ const Home = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const Navigate=useNavigate()
-  const handleClick=()=>{
+  const Navigate = useNavigate()
+  const handleClick = () => {
     Navigate("/Seller");
   }
   return (
     <div
-      
+
       id="home"
       className="header"
       style={{
@@ -44,32 +44,32 @@ const Home = () => {
             xs={12}
             md={6}
             lg={6}
-            sx={{ mt: 4,alignItems:"center" , justifyContent: "center" }}
+            sx={{ mt: 4, alignItems: "center", justifyContent: "center" }}
           >
-          
-              
-             
+
+
+
 
             <Box justifyContent="center" alignItems="center">
-            <Button
-            
-            data-aos="fade-up"
-           style={{
-             boxShadow: "none",
-             borderRadius: "20px",
-             color: "#ec5858",
-             
-             paddingInline: "15px",
-             textDecoration: "none",
-             backgroundColor:"#fdeeee",
-             height:"3.65vh",
-             fontSize:"16px",
-            
-           }}
-           onClick={handleClick}
-         >
-           Are You A Seller ?
-         </Button>
+              <Button
+
+                data-aos="fade-up"
+                style={{
+                  boxShadow: "none",
+                  borderRadius: "20px",
+                  color: "#ec5858",
+
+                  paddingInline: "15px",
+                  textDecoration: "none",
+                  backgroundColor: "#fdeeee",
+                  height: "3.65vh",
+                  fontSize: "16px",
+
+                }}
+                onClick={handleClick}
+              >
+                Are You A Seller ?
+              </Button>
               <h1
                 data-aos="fade-up"
                 style={{
@@ -97,7 +97,7 @@ const Home = () => {
               </p>
               <Box>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.atflabs.litchies"
+                  href="https://play.google.com/store/apps/details?id=com.litchies"
                   target={"_blank"}
                   style={{ textDecoration: "none" }}
                 >
@@ -112,7 +112,7 @@ const Home = () => {
                       color: "white",
                       backgroundColor: "#ec5858",
                       marginRight: 5,
-                      marginBlock:4,
+                      marginBlock: 4,
                       width: "171px",
                       // height: "5vh",
                     }}
@@ -136,7 +136,7 @@ const Home = () => {
                 >
                   Invite Friends
                 </Button>
-                 
+
                 <ShareModal open={open} onClose={handleClose}></ShareModal>
               </Box>
             </Box>

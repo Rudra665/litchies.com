@@ -53,7 +53,7 @@ const JoinUsPage = () => {
                   new local shopping experience while sitting at home.
                 </Typography>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.atflabs.litchies"
+                  href="https://play.google.com/store/apps/details?id=com.litchies"
                   py={1}
                 >
                   <img

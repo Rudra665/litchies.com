@@ -84,7 +84,7 @@ export default function UseInput() {
       <CustomInput
         ref={textAreaRef}
         aria-label="Demo input"
-        value="https://play.google.com/store/apps/details?id=com.atflabs.litchies"
+        value="https://play.google.com/store/apps/details?id=com.litchies"
       />
       <Button
         variant="contained"

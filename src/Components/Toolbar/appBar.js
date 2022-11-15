@@ -10,11 +10,12 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { AppBar, CssBaseline, SwipeableDrawer } from "@mui/material";
-import { HashLink as Link } from "react-router-hash-link";
+import { HashLink as Tink } from "react-router-hash-link";
 
 const CustomAppBar = (props) => {
   const pages = [
-    { id: "1", name: "Home", to: "#home" },
+
+    { id: "1", name: "Home", to: "/" },
     { id: "2", name: "About Us", to: "#About" },
     { id: "3", name: "Features", to: "#Features" },
     { id: "4", name: "Shop", to: "#Shop" },
@@ -71,7 +72,6 @@ const CustomAppBar = (props) => {
                 "& .MuiDrawer-paper": {
                   width: "100%",
                   height: "36%",
-
                   backgroundColor: "Black",
                 },
               }}
@@ -80,7 +80,7 @@ const CustomAppBar = (props) => {
               open={anchorElNav}
             >
               {pages.map((page) => (
-                <Link
+                <Tink
                   smooth
                   to={page.to}
                   style={{
@@ -95,7 +95,7 @@ const CustomAppBar = (props) => {
                   >
                     <Typography>{page.name}</Typography>
                   </MenuItem>
-                </Link>
+                </Tink>
               ))}
             </SwipeableDrawer>
           </Box>
@@ -107,7 +107,7 @@ const CustomAppBar = (props) => {
             }}
           >
             {pages.map((page) => (
-              <Link to={page.to} smooth style={{ textDecoration: "none" }}>
+              <Tink to={page.to} smooth style={{ textDecoration: "none" }}>
                 <Button
                   key={page.id}
                   onClick={handleCloseNavMenu}
@@ -120,37 +120,12 @@ const CustomAppBar = (props) => {
                 >
                   {page.name}
                 </Button>
-              </Link>
+              </Tink>
             ))}
-          </Box>
-
-          <Box
-            sx={{
-              display: { xs: "none", md: "flex" },
-              textDecoration: "none",
-            }}
-          >
-            {/* <Link to="#Contact" style={{ textDecoration: "none" }}>
-              <Button
-                size="large"
-                style={{
-                  boxShadow: "none",
-                  borderRadius: "10px",
-                  color: "white",
-                  backgroundColor: "#ec5858",
-                  paddingInline: "27px",
-                  textDecoration: "none",
-                  // height: "5vh",
-                }}
-              >
-                Are You a Seller?
-               
-              </Button>
-            </Link> */}
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </AppBar >
   );
 };
 export default CustomAppBar;
