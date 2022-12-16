@@ -5,6 +5,9 @@ import Facebook from "../../Image/linkButtons/facebook.svg";
 import LinkedIn from "../../Image/linkButtons/Linkedin.svg";
 import Twitter from "../../Image/linkButtons/twitter.svg";
 import Instagram from "../../Image/linkButtons/instagram.svg";
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import EmailIcon from '@mui/icons-material/Email';
+import ApartmentIcon from '@mui/icons-material/Apartment';
 import IconButton from "@mui/material/IconButton";
 import {
   Box,
@@ -22,22 +25,76 @@ const Footer = () => {
         <Container maxWidth="xl">
           <Grid container justifyContent="center">
             <Hidden mdDown>
-              <Grid item lg={6} xs={12} align="left" m={2}>
-                <img src={Logo} width="20%" height="100%"></img>
+              <Grid item lg={4} xs={12} align="left" mt={4}>
+                <img src={Logo} width="200vh" ></img>
               </Grid>
             </Hidden>
             <Hidden smUp>
-              <Grid item lg={4} xs={12} align="center" m={2}>
-                <img src={Logo} width="30%" height="100%"></img>
+              <Grid item lg={4} xs={12} align="center" mt={2}>
+                <img src={Logo} width="200vh" ></img>
               </Grid>
             </Hidden>
             <Hidden smDown mdUp>
-              <Grid item lg={4} xs={12} align="center" m={2}>
-                <img src={Logo} width="15%" height="100%"></img>
+              <Grid item lg={4} xs={12} align="center" mt={2}>
+                <img src={Logo} width="200vh"></img>
               </Grid>
             </Hidden>
+            <Hidden mdDown>
+              <Grid item lg={3} xs={12} m={2}>
+                <Box display="grid" justifyContent="left">
+                  <Typography variant="h6" fontWeight="700" color="black" >Contact</Typography>
+                  <Box display="flex" justifyContent="left">
+                    <Box display="grid">
+                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                    </Box>
+                    <Box display="block">
+                      <a href="https://atf-labs.com/" target={"_blank"}><Typography sx={{ color: "black", mb: 1, '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
+                      <Typography sx={{ color: "black", mb: 1 }}>litchies2022@gmail.com</Typography>
+                      <Typography sx={{ color: "black", mb: 1 }}>8266847277</Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </Grid></Hidden >
             <Hidden smUp>
-              <Grid item lg={6} xs={12} align="center" m={2}>
+              <Grid item lg={4} xs={12} m={2}>
+                <Box display="grid" justifyContent="center">
+                  <Typography variant="h6" fontWeight="700" color="black" align="center">Contact</Typography>
+                  <Box display="flex" >
+                    <Box display="grid">
+                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                    </Box>
+                    <Box display="block">
+                      <a href="https://atf-labs.com/" target={"_blank"}> <Typography align="center" sx={{ color: "black", mb: 1, '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
+                      <Typography align="center" sx={{ color: "black", mb: 1, }}>litchies2022@gmail.com</Typography>
+                      <Typography align="center" sx={{ color: "black", mb: 1, }}>8266847277</Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </Grid></Hidden>
+            <Hidden smDown mdUp>
+              <Grid item lg={4} xs={12} align="center" m={2}>
+                <Box display="grid" justifyContent="center">
+                  <Typography variant="h6" sx={{ fontWeight: "700", color: "black", mb: "2vh" }} align="center">Contact</Typography>
+                  <Box display="flex" >
+                    <Box display="grid">
+                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                    </Box>
+                    <Box display="block">
+                      <a href="https://atf-labs.com/" target={"_blank"}  > <Typography align="center" sx={{ color: "black", mb: 1, textDecoration: "none", '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
+                      <Typography align="center" sx={{ color: "black", mb: 1, }}>litchies2022@gmail.com</Typography>
+                      <Typography align="center" sx={{ color: "black", mb: 1, }}>8266847277</Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </Grid></Hidden>
+            <Hidden smUp>
+              <Grid item lg={4} xs={12} align="center" m={2}>
                 <IconButton>
                   <img src={Facebook}></img>
                 </IconButton>
@@ -52,6 +109,7 @@ const Footer = () => {
                 </IconButton>
               </Grid>
             </Hidden>
+
             <Hidden mdDown>
               <Grid item lg={3} xs={12} align="end" m={2}>
                 <IconButton>
@@ -85,8 +143,8 @@ const Footer = () => {
               </Grid>
             </Hidden>
           </Grid>
-        </Container>
-      </div>
+        </Container >
+      </div >
       <div
         style={{
           width: "100%",

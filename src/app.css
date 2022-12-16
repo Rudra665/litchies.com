@@ -1,15 +1,24 @@
-*{
+* {
    -ms-overflow-style: none;
 }
+
 ::-webkit-scrollbar {
    display: none;
 }
-.Active{
-  background-color: #ec5858;
-  color: aliceblue;
+
+.Active {
+   background-color: #ec5858;
+   color: aliceblue;
 }
-.footer{
-   background:#f28d8d;
-   display:flexbox;
-   
+
+.footer {
+   background: #f28d8d;
+   display: flexbox;
+
 }
+
+a {
+   text-decoration: none;
+   color: black;
+}
+
