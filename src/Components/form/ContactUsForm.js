@@ -7,9 +7,10 @@ import Typography from "@mui/material/Typography";
 import Contact from "../Image/contactUs/image.jpg";
 import Container from "@mui/material/Container";
 import axios from "axios";
-
+import TermsCondition from "./Terms&Condition"
 import { Box } from "@mui/system";
 import { Alert, Snackbar } from "@mui/material";
+import { Checkbox } from "@mui/material";
 export default function ContactUsForm() {
   const [open, setOpen] = React.useState(false);
   const [disable, setDisable] = React.useState(false);
@@ -20,6 +21,7 @@ export default function ContactUsForm() {
     store: "",
     comment: "",
   });
+  const [termsClick, setTermsClick] = React.useState(false)
   const { name, email, mobile, store, comment } = fields;
   const [error, setError] = React.useState({
     name: false,
@@ -29,9 +31,9 @@ export default function ContactUsForm() {
   });
 
   const handleSubmit = () => {
-    
+
     setOpen(true);
-    if (!Object.values(error).includes(true)&& !Object.values(fields).includes("") ) {
+    if (!Object.values(error).includes(true) && !Object.values(fields).includes("")) {
       const data = new FormData();
       data.append("name", name);
       data.append("email", email);
@@ -56,8 +58,8 @@ export default function ContactUsForm() {
       });
     }
     console.log(disable)
-      setDisable(true);
-    
+    setDisable(true);
+
   };
 
   const handleChangeFields = (e) => {
@@ -69,14 +71,14 @@ export default function ContactUsForm() {
     ) {
       setDisable(false)
       if (e.target.name === "mobile") {
-        
+
         if (e.target.value.length !== 10) {
           setError({ ...error, [e.target.name]: true });
         } else {
           setError({ ...error, [e.target.name]: false });
         }
       } else if (e.target.name === "email") {
-        
+
         if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(e.target.value))
           setError({ ...error, [e.target.name]: false });
         else {
@@ -102,7 +104,7 @@ export default function ContactUsForm() {
               style={{
                 paddingY: 24,
                 boxShadow: "0 14px 12px  rgba(116, 115, 128, 0.1)",
-                borderRadius:15,
+                borderRadius: 15,
                 backgroundColor: "white",
               }}
             >
@@ -221,11 +223,12 @@ export default function ContactUsForm() {
                             onChange={handleChangeFields}
                           />
                         </Grid>
+
                         <Grid item xs={12}>
                           <Box mt={4}>
                             <Button
                               onClick={handleSubmit}
-                              
+
                               style={{
                                 borderRadius: "10px",
                                 paddingInline: "10%",
@@ -236,6 +239,11 @@ export default function ContactUsForm() {
                             >
                               Send
                             </Button>
+                          </Box>
+                        </Grid>
+                        <Grid item xs={12}>
+                          <Box maxWidth="700px">
+                            <Typography style={{ fontFamily: "sans-serif", fontWeight: "lighter" }}>By clicking the submit button below, I hereby agree to and accept the following <span onClick={() => setTermsClick(true)} style={{ color: "#ec5858", cursor: "pointer" }}><u>terms and conditions</u></span></Typography>
                           </Box>
                         </Grid>
                       </Grid>
@@ -259,11 +267,12 @@ export default function ContactUsForm() {
           <Alert
             severity={Object.values(error).includes(true) || Object.values(fields).includes("") ? "error" : "success"}
           >
-            {Object.values(error).includes(true) || !Object.values(fields).includes("") 
+            {Object.values(error).includes(true) || !Object.values(fields).includes("")
               ? "thanks for reaching out"
               : "please check your form"}
           </Alert>
         </Snackbar>
+        <TermsCondition open={termsClick} onClose={setTermsClick} />
       </div>
     </>
   );

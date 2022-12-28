@@ -10,7 +10,8 @@ import axios from "axios";
 
 import { Box } from "@mui/system";
 import { Alert, Snackbar } from "@mui/material";
-
+import { Checkbox } from "@mui/material";
+import TermsCondition from "./Terms&Condition"
 export default function ContactUsForm() {
   const [open, setOpen] = React.useState(false);
   const [disable, setDisable] = React.useState(false);
@@ -21,6 +22,7 @@ export default function ContactUsForm() {
     // store: "",
     comment: "",
   });
+  const [termsClick, setTermsClick] = React.useState(false)
   const { name, email, mobile, store, comment } = fields;
   const [error, setError] = React.useState({
     name: false,
@@ -30,11 +32,11 @@ export default function ContactUsForm() {
   });
 
   const handleSubmit = () => {
-    
+
     setOpen(true);
-   
+
     if (!Object.values(error).includes(true) && !Object.values(fields).includes("")) {
-      
+
       const data = new FormData();
       data.append("name", name);
       data.append("email", email);
@@ -58,7 +60,7 @@ export default function ContactUsForm() {
         comment: "",
       });
     }
-      setDisable(true);
+    setDisable(true);
   };
 
   const handleChangeFields = (e) => {
@@ -70,7 +72,7 @@ export default function ContactUsForm() {
     ) {
       setDisable(false);
       if (e.target.name === "mobile") {
-        
+
         if (e.target.value.length !== 10) {
           setError({ ...error, [e.target.name]: true });
         } else {
@@ -102,7 +104,7 @@ export default function ContactUsForm() {
               style={{
                 paddingY: 24,
                 boxShadow: "0 14px 12px  rgba(116, 115, 128, 0.1)",
-                borderRadius:15,
+                borderRadius: 15,
                 backgroundColor: "white",
               }}
             >
@@ -157,7 +159,7 @@ export default function ContactUsForm() {
                           />
                         </Grid>
 
-                      
+
                         <Grid item lg={6} xs={12}>
                           <TextField
                             variant="standard"
@@ -208,7 +210,7 @@ export default function ContactUsForm() {
                           <Box mt={4}>
                             <Button
                               onClick={handleSubmit}
-                              
+
                               style={{
                                 borderRadius: "10px",
                                 paddingInline: "10%",
@@ -219,6 +221,11 @@ export default function ContactUsForm() {
                             >
                               Send
                             </Button>
+                          </Box>
+                        </Grid>
+                        <Grid item xs={12}>
+                          <Box maxWidth="700px">
+                            <Typography style={{ fontFamily: "sans-serif", fontWeight: "lighter" }}>By clicking the submit button below, I hereby agree to and accept the following <span onClick={() => setTermsClick(true)} style={{ color: "#ec5858", cursor: "pointer" }}><u>terms and conditions</u></span></Typography>
                           </Box>
                         </Grid>
                       </Grid>
@@ -237,16 +244,17 @@ export default function ContactUsForm() {
             vertical: "bottom",
             horizontal: "center",
           }}
-          
+
         >
           <Alert
-            severity={ Object.values(error).includes(true) || Object.values(fields).includes("") ? "error" : "success"}
+            severity={Object.values(error).includes(true) || Object.values(fields).includes("") ? "error" : "success"}
           >
             {Object.values(error).includes(true) || !Object.values(fields).includes("")
               ? "thanks for reaching out"
               : "please check your form"}
           </Alert>
         </Snackbar>
+        <TermsCondition open={termsClick} onClose={setTermsClick} />
       </div>
     </>
   );
