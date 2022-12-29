@@ -5,9 +5,9 @@ import React from "react";
 import "aos/dist/aos.css";
 import Aos from "aos";
 import Bullet from "../../Image/Bullets/bullet.png";
-import Video1 from "../../Image/videoImages/vedio1.png";
-import Video2 from "../../Image/videoImages/vedio2.png";
-import Video3 from "../../Image/videoImages/vedio3.png";
+import Video1 from "../../Image/videoImages/vedio1.jpg";
+import Video2 from "../../Image/videoImages/vedio2.jpg";
+import Video3 from "../../Image/videoImages/vedio3.jpg";
 Aos.init();
 const featuresImage = (justifyContent, pl) => {
   return (

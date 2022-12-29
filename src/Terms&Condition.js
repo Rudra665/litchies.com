@@ -16,13 +16,13 @@ export default function TermsCondition() {
         p: 4,
         borderRadius: "20px",
         boxShadow: 24,
-        mt: 30
+        mt: 25
     };
     window.scrollTo({ top: 0 })
     return (<>
-        <Logo />
-        <div style={{ position: "absolute", display: "grid", justifyItems: "center", background: "orange", width: "100%", top: "0", left: "0", height: "40%" }}>
 
+        <div style={{ position: "absolute", display: "grid", justifyItems: "center", background: "orange", width: "100%", top: "0", left: "0", height: "40%" }}>
+            <Box sx={{ zIndex: "4", position: "absolute", left: "46%", top: 14 }}><Logo /></Box>
             <Box sx={{ display: "flex", justifyContent: "center", mt: 15 }}>
                 <Typography variant='h3' fontWeight="700" align="center" fontSize="4vh" >Terms & Conditions</Typography>
             </Box>

@@ -5,14 +5,14 @@ import React from "react";
 import "aos/dist/aos.css";
 import Aos from "aos";
 import Bullet from "../../Image/Bullets/bullet.png";
-import Video1 from "../../Image/videoImages/vedio1.png";
-import Video2 from "../../Image/videoImages/vedio2.png";
-import Video3 from "../../Image/videoImages/vedio3.png";
+import Video1 from "../../Image/videoImages/vedio1.jpg";
+import Video2 from "../../Image/videoImages/vedio2.jpg";
+import Video3 from "../../Image/videoImages/vedio3.jpg";
 Aos.init();
 const featuresImage = (justifyContent, pl) => {
   return (
     <Grid container item alignItems="center" justifyContent={justifyContent}>
-      <Box p={1} pl={pl}  data-aos="flip-up" data-aos-delay="100">
+      <Box p={1} pl={pl} data-aos="flip-up" data-aos-delay="100">
         <img src={Video1} style={{ borderRadius: "20px" }} />
       </Box>
       <Grid container item lg={6} sm={6} xs={12} justifyContent="center">
@@ -35,7 +35,7 @@ const About = () => {
   return (
     <div
       id="About"
-      
+
       style={{ width: "100%", paddingBlock: "12px" }}
     >
       <Container maxWidth="xl">
