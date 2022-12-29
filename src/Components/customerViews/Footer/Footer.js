@@ -148,14 +148,7 @@ const Footer = () => {
             </Hidden>
 
           </Grid>
-          <Grid item lg={3} xs={12} align="end"  >
-            <Hidden mdDown>
-              <Button onClick={handleClick} sx={{ mr: "5.7vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & Conditions</u></Button>
-            </Hidden>
-            <Hidden smUp>
-              <Button onClick={handleClick} sx={{ mr: "25vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & conditions</u></Button>
-            </Hidden>
-          </Grid>
+
         </Container >
       </div >
       <div
@@ -164,10 +157,12 @@ const Footer = () => {
           textAlign: "center",
           backgroundColor: "#ec5858",
           padding: 2,
+          display: "flex",
+          justifyContent: "center"
         }}
-      >
-        <Typography color="#ffff">
-          Copyright <span>&copy;</span> 2022
+      ><Typography color="#ffff" align="center">
+          Copyright <span>&copy;</span> 2022<br />
+          <Button onClick={handleClick} sx={{ color: "black", cursor: "pointer", fontSize: "12px" }}><u>Terms & Conditions</u></Button>
         </Typography>
       </div>
     </>
