@@ -11,6 +11,7 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import IconButton from "@mui/material/IconButton";
 import {
   Box,
+  Button,
   Grid,
   Hidden,
   Link,
@@ -18,7 +19,16 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const Footer = () => {
+
+
+  const Navigate = useNavigate()
+
+  const handleClick = () => {
+    Navigate("/TermsCondition");
+  }
+
   return (
     <>
       <div className="footer" style={{ width: "100%" }}>
@@ -45,14 +55,14 @@ const Footer = () => {
                   <Typography variant="h6" fontWeight="700" color="black" >Contact</Typography>
                   <Box display="flex" justifyContent="left">
                     <Box display="grid">
-                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
-                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
-                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 2, fontWeight: "500" }} />
+                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, fontWeight: "500" }} />
+                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, fontWeight: "500" }} />
                     </Box>
                     <Box display="block">
-                      <a href="https://atf-labs.com/" target={"_blank"}><Typography sx={{ color: "black", mb: 1, '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
-                      <Typography sx={{ color: "black", mb: 1 }}>litchies2022@gmail.com</Typography>
-                      <Typography sx={{ color: "black", mb: 1 }}>8266847277</Typography>
+                      <a href="https://atf-labs.com/" target={"_blank"}><Typography sx={{ color: "black", mb: 1, ml: 3, mt: 2, '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
+                      <Typography sx={{ color: "black", mb: 1, ml: 3 }}>litchies2022@gmail.com</Typography>
+                      <Typography sx={{ color: "black", mb: 1, ml: 3 }}>8266847277</Typography>
                     </Box>
                   </Box>
                 </Box>
@@ -63,14 +73,14 @@ const Footer = () => {
                   <Typography variant="h6" fontWeight="700" color="black" align="center">Contact</Typography>
                   <Box display="flex" >
                     <Box display="grid">
-                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
-                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
-                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 2, fontWeight: "500" }} />
+                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, fontWeight: "500" }} />
+                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, fontWeight: "500" }} />
                     </Box>
                     <Box display="block">
-                      <a href="https://atf-labs.com/" target={"_blank"}> <Typography align="center" sx={{ color: "black", mb: 1, '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
-                      <Typography align="center" sx={{ color: "black", mb: 1, }}>litchies2022@gmail.com</Typography>
-                      <Typography align="center" sx={{ color: "black", mb: 1, }}>8266847277</Typography>
+                      <a href="https://atf-labs.com/" target={"_blank"}> <Typography align="left" sx={{ color: "black", mb: 1, ml: 3, mt: 2, '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
+                      <Typography align="left" sx={{ color: "black", mb: 1, ml: 3 }}>litchies2022@gmail.com</Typography>
+                      <Typography align="left" sx={{ color: "black", mb: 1, ml: 3 }}>8266847277</Typography>
                     </Box>
                   </Box>
                 </Box>
@@ -81,29 +91,27 @@ const Footer = () => {
                   <Typography variant="h6" sx={{ fontWeight: "700", color: "black", mb: "2vh" }} align="center">Contact</Typography>
                   <Box display="flex" >
                     <Box display="grid">
-                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
-                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
-                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 1, fontWeight: "500" }} />
+                      <ApartmentIcon sx={{ fontSize: "20px", color: "white", mx: 1, mt: 2, fontWeight: "500" }} />
+                      <EmailIcon sx={{ fontSize: "20px", color: "white", mx: 1, fontWeight: "500" }} />
+                      <LocalPhoneIcon sx={{ fontSize: "20px", color: "white", mx: 1, fontWeight: "500" }} />
                     </Box>
                     <Box display="block">
-                      <a href="https://atf-labs.com/" target={"_blank"}  > <Typography align="center" sx={{ color: "black", mb: 1, textDecoration: "none", '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
-                      <Typography align="center" sx={{ color: "black", mb: 1, }}>litchies2022@gmail.com</Typography>
-                      <Typography align="center" sx={{ color: "black", mb: 1, }}>8266847277</Typography>
+                      <a href="https://atf-labs.com/" target={"_blank"}  > <Typography align="left" sx={{ color: "black", mb: 1, ml: 3, mt: 2, textDecoration: "none", '& :hover': { color: "red" } }}>www.atf-labs.com</Typography></a>
+                      <Typography align="left" sx={{ color: "black", mb: 1, ml: 3 }}>litchies2022@gmail.com</Typography>
+                      <Typography align="left" sx={{ color: "black", mb: 1, ml: 3 }}>8266847277</Typography>
                     </Box>
                   </Box>
                 </Box>
               </Grid></Hidden>
             <Hidden smUp>
               <Grid item lg={4} xs={12} align="center" m={2}>
-                <IconButton>
+                <a href="https://www.instagram.com/litchies_official/" target="_blank"><IconButton>
                   <img src={Facebook}></img>
-                </IconButton>
-                <IconButton>
+                </IconButton></a>
+                <a href='https://www.facebook.com/profile.php?id=100088295311242' target="_blank"><IconButton>
                   <img src={Instagram}></img>
-                </IconButton>
-                <IconButton>
-                  <img src={Twitter}></img>
-                </IconButton>
+                </IconButton></a>
+
                 <IconButton>
                   <img src={LinkedIn}></img>
                 </IconButton>
@@ -112,15 +120,13 @@ const Footer = () => {
 
             <Hidden mdDown>
               <Grid item lg={3} xs={12} align="end" m={2}>
-                <IconButton>
+                <a href="https://www.instagram.com/litchies_official/" target="_blank"><IconButton>
                   <img src={Facebook}></img>
-                </IconButton>
-                <IconButton>
+                </IconButton></a>
+                <a href='https://www.facebook.com/profile.php?id=100088295311242' target="_blank"><IconButton>
                   <img src={Instagram}></img>
-                </IconButton>
-                <IconButton>
-                  <img src={Twitter}></img>
-                </IconButton>
+                </IconButton></a>
+
                 <IconButton>
                   <img src={LinkedIn}></img>
                 </IconButton>
@@ -128,19 +134,26 @@ const Footer = () => {
             </Hidden>
             <Hidden smDown mdUp>
               <Grid item lg={3} xs={12} align="center" m={2}>
-                <IconButton>
+                <a href="https://www.instagram.com/litchies_official/" target="_blank"><IconButton>
                   <img src={Facebook}></img>
-                </IconButton>
-                <IconButton>
+                </IconButton></a>
+                <a href='https://www.facebook.com/profile.php?id=100088295311242' target="_blank"><IconButton>
                   <img src={Instagram}></img>
-                </IconButton>
-                <IconButton>
-                  <img src={Twitter}></img>
-                </IconButton>
+                </IconButton></a>
+
                 <IconButton>
                   <img src={LinkedIn}></img>
                 </IconButton>
               </Grid>
+            </Hidden>
+
+          </Grid>
+          <Grid item lg={3} xs={12} align="end"  >
+            <Hidden mdDown>
+              <Button onClick={handleClick} sx={{ mr: "6.7vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & Conditions</u></Button>
+            </Hidden>
+            <Hidden smUp>
+              <Button onClick={handleClick} sx={{ mr: "25vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & conditions</u></Button>
             </Hidden>
           </Grid>
         </Container >
