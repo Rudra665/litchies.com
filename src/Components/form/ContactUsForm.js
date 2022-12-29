@@ -7,10 +7,10 @@ import Typography from "@mui/material/Typography";
 import Contact from "../Image/contactUs/image.jpg";
 import Container from "@mui/material/Container";
 import axios from "axios";
-import TermsCondition from "./Terms&Condition"
+import TermsCondition from "../../Terms&Condition"
 import { Box } from "@mui/system";
 import { Alert, Snackbar } from "@mui/material";
-import { Checkbox } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 export default function ContactUsForm() {
   const [open, setOpen] = React.useState(false);
   const [disable, setDisable] = React.useState(false);
@@ -21,7 +21,13 @@ export default function ContactUsForm() {
     store: "",
     comment: "",
   });
-  const [termsClick, setTermsClick] = React.useState(false)
+  const Navigate = useNavigate()
+
+  const handleClick = () => {
+    Navigate("/TermsCondition");
+  }
+
+  // const [termsClick, setTermsClick] = React.useState(false)
   const { name, email, mobile, store, comment } = fields;
   const [error, setError] = React.useState({
     name: false,
@@ -243,7 +249,7 @@ export default function ContactUsForm() {
                         </Grid>
                         <Grid item xs={12}>
                           <Box maxWidth="700px">
-                            <Typography style={{ fontFamily: "sans-serif", fontWeight: "lighter" }}>By clicking the submit button below, I hereby agree to and accept the following <span onClick={() => setTermsClick(true)} style={{ color: "#ec5858", cursor: "pointer" }}><u>terms and conditions</u></span></Typography>
+                            <Typography style={{ fontFamily: "sans-serif", fontWeight: "lighter" }}>By clicking the submit button below, I hereby agree to and accept the following <Button onClick={handleClick} style={{ color: "#ec5858", cursor: "pointer" }}><u>terms and conditions</u></Button></Typography>
                           </Box>
                         </Grid>
                       </Grid>
@@ -272,7 +278,7 @@ export default function ContactUsForm() {
               : "please check your form"}
           </Alert>
         </Snackbar>
-        <TermsCondition open={termsClick} onClose={setTermsClick} />
+
       </div>
     </>
   );

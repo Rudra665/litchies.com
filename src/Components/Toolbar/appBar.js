@@ -10,7 +10,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { AppBar, CssBaseline, SwipeableDrawer } from "@mui/material";
-import { HashLink as Tink } from "react-router-hash-link";
+import { HashLink as Link } from "react-router-hash-link";
 
 const CustomAppBar = (props) => {
   const pages = [
@@ -80,7 +80,7 @@ const CustomAppBar = (props) => {
               open={anchorElNav}
             >
               {pages.map((page) => (
-                <Tink
+                <Link
                   smooth
                   to={page.to}
                   style={{
@@ -95,7 +95,7 @@ const CustomAppBar = (props) => {
                   >
                     <Typography>{page.name}</Typography>
                   </MenuItem>
-                </Tink>
+                </Link>
               ))}
             </SwipeableDrawer>
           </Box>
@@ -107,7 +107,7 @@ const CustomAppBar = (props) => {
             }}
           >
             {pages.map((page) => (
-              <Tink to={page.to} smooth style={{ textDecoration: "none" }}>
+              <Link to={page.to} smooth style={{ textDecoration: "none" }}>
                 <Button
                   key={page.id}
                   onClick={handleCloseNavMenu}
@@ -120,7 +120,7 @@ const CustomAppBar = (props) => {
                 >
                   {page.name}
                 </Button>
-              </Tink>
+              </Link>
             ))}
           </Box>
         </Toolbar>
