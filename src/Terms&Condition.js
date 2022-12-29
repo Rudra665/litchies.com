@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { display, width } from '@mui/system';
 // web.cjs is required for IE11 support
-import Logo from "./Components/Image/logo/logo";
+import logo from "./Components/Image/logo/litchies_logo.png";
 import { WindowSharp } from '@mui/icons-material';
 export default function TermsCondition() {
 
@@ -22,7 +22,7 @@ export default function TermsCondition() {
     return (<>
 
         <div style={{ position: "absolute", display: "grid", justifyItems: "center", background: "orange", width: "100%", top: "0", left: "0", height: "40%" }}>
-            <Box sx={{ zIndex: "4", position: "absolute", left: "46%", top: 14 }}><Logo /></Box>
+            <Box sx={{ zIndex: "4", position: "absolute", left: "43.5%", top: 20 }}><img src={logo} width="200vh"></img></Box>
             <Box sx={{ display: "flex", justifyContent: "center", mt: 15 }}>
                 <Typography variant='h3' fontWeight="700" align="center" fontSize="4vh" >Terms & Conditions</Typography>
             </Box>

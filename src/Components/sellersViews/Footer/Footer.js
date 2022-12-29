@@ -6,8 +6,14 @@ import LinkedIn from "../../Image/linkButtons/Linkedin.svg";
 import Twitter from "../../Image/linkButtons/twitter.svg";
 import Instagram from "../../Image/linkButtons/instagram.svg";
 import IconButton from "@mui/material/IconButton";
-import { Box, Grid, Hidden, Typography } from "@mui/material";
+import { Box, Button, Grid, Hidden, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const Footer = () => {
+  const Navigate = useNavigate()
+
+  const handleClick = () => {
+    Navigate("/TermsCondition");
+  }
   return (
     <>
       <div className="footer" style={{ width: "100%" }}>
@@ -37,24 +43,19 @@ const Footer = () => {
                   <img src={Instagram}></img>
                 </IconButton>
                 <IconButton>
-                  <img src={Twitter}></img>
-                </IconButton>
-                <IconButton>
                   <img src={LinkedIn}></img>
                 </IconButton>
               </Grid>
             </Hidden>
             <Hidden mdDown>
               <Grid item lg={3} xs={12} align="end" m={2}>
-                <IconButton>
+                <a href="https://www.instagram.com/litchies_official/" target="_blank"><IconButton>
                   <img src={Facebook}></img>
-                </IconButton>
-                <IconButton>
+                </IconButton></a>
+                <a href='https://www.facebook.com/profile.php?id=100088295311242' target="_blank"><IconButton>
                   <img src={Instagram}></img>
-                </IconButton>
-                <IconButton>
-                  <img src={Twitter}></img>
-                </IconButton>
+                </IconButton></a>
+
                 <IconButton>
                   <img src={LinkedIn}></img>
                 </IconButton>
@@ -69,16 +70,21 @@ const Footer = () => {
                   <img src={Instagram}></img>
                 </IconButton>
                 <IconButton>
-                  <img src={Twitter}></img>
-                </IconButton>
-                <IconButton>
                   <img src={LinkedIn}></img>
                 </IconButton>
               </Grid>
             </Hidden>
           </Grid>
+          <Grid item lg={3} xs={12} align="end"  >
+            <Hidden mdDown>
+              <Button onClick={handleClick} sx={{ mr: "10vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & Conditions</u></Button>
+            </Hidden>
+            <Hidden smUp>
+              <Button onClick={handleClick} sx={{ mr: "25vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & conditions</u></Button>
+            </Hidden>
+          </Grid>
         </Container>
-      </div>
+      </div >
       <div
         style={{
           width: "100%",

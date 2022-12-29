@@ -10,7 +10,7 @@ import axios from "axios";
 import TermsCondition from "../../Terms&Condition"
 import { Box } from "@mui/system";
 import { Alert, Snackbar } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 export default function ContactUsForm() {
   const [open, setOpen] = React.useState(false);
   const [disable, setDisable] = React.useState(false);
@@ -21,11 +21,7 @@ export default function ContactUsForm() {
     store: "",
     comment: "",
   });
-  const Navigate = useNavigate()
 
-  const handleClick = () => {
-    Navigate("/TermsCondition");
-  }
 
   // const [termsClick, setTermsClick] = React.useState(false)
   const { name, email, mobile, store, comment } = fields;
@@ -247,11 +243,11 @@ export default function ContactUsForm() {
                             </Button>
                           </Box>
                         </Grid>
-                        <Grid item xs={12}>
+                        {/* <Grid item xs={12}>
                           <Box maxWidth="700px">
-                            <Typography style={{ fontFamily: "sans-serif", fontSize: "12px" }}>By clicking the submit button below, I hereby agree to and accept the following <Button onClick={handleClick} style={{ color: "#ec5858", cursor: "pointer", fontSize: "12px" }}><u>terms and conditions</u></Button></Typography>
+                            <Typography style={{ fontFamily: "sans-serif", fontSize: "12px" }}>By clicking the submit button below, I hereby agree to and accept the following </Typography>
                           </Box>
-                        </Grid>
+                        </Grid> */}
                       </Grid>
                     </Box>
                   </Box>

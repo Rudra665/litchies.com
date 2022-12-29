@@ -12,7 +12,7 @@ import { Box } from "@mui/system";
 import { Alert, Snackbar } from "@mui/material";
 import { Checkbox } from "@mui/material";
 import TermsCondition from "../../Terms&Condition"
-import { useNavigate } from "react-router-dom";
+
 import { fontSize } from "@mui/joy/styles/styleFunctionSx";
 export default function ContactUsForm() {
   const [open, setOpen] = React.useState(false);
@@ -24,7 +24,7 @@ export default function ContactUsForm() {
     // store: "",
     comment: "",
   });
-  const Navigate = useNavigate()
+
   const [termsClick, setTermsClick] = React.useState(false)
   const { name, email, mobile, store, comment } = fields;
   const [error, setError] = React.useState({
@@ -66,9 +66,7 @@ export default function ContactUsForm() {
     setDisable(true);
   };
 
-  const handleClick = () => {
-    Navigate("/TermsCondition");
-  }
+
 
   const handleChangeFields = (e) => {
     if (
@@ -230,11 +228,11 @@ export default function ContactUsForm() {
                             </Button>
                           </Box>
                         </Grid>
-                        <Grid item xs={12}>
+                        {/* <Grid item xs={12}> */}
 
-                          <Typography style={{ fontFamily: "sans-serif", fontSize: "12px" }}>By clicking the submit button below, I hereby agree to and accept the following <Button onClick={handleClick} style={{ color: "#ec5858", cursor: "pointer", fontSize: "12px" }}><u>terms and conditions</u></Button></Typography>
+                        {/* <Typography style={{ fontFamily: "sans-serif", fontSize: "12px" }}>By clicking the submit button below, I hereby agree to and accept the following <Button onClick={handleClick} style={{ color: "#ec5858", cursor: "pointer", fontSize: "12px" }}><u>terms and conditions</u></Button></Typography> */}
 
-                        </Grid>
+                        {/* </Grid> */}
                       </Grid>
                     </Box>
                   </Box>
