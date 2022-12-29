@@ -249,7 +249,7 @@ export default function ContactUsForm() {
                         </Grid>
                         <Grid item xs={12}>
                           <Box maxWidth="700px">
-                            <Typography style={{ fontFamily: "sans-serif", fontWeight: "lighter" }}>By clicking the submit button below, I hereby agree to and accept the following <Button onClick={handleClick} style={{ color: "#ec5858", cursor: "pointer" }}><u>terms and conditions</u></Button></Typography>
+                            <Typography style={{ fontFamily: "sans-serif", fontSize: "12px" }}>By clicking the submit button below, I hereby agree to and accept the following <Button onClick={handleClick} style={{ color: "#ec5858", cursor: "pointer", fontSize: "12px" }}><u>terms and conditions</u></Button></Typography>
                           </Box>
                         </Grid>
                       </Grid>

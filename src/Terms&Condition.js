@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import { display, width } from '@mui/system';
 // web.cjs is required for IE11 support
 import Logo from "./Components/Image/logo/logo";
+import { WindowSharp } from '@mui/icons-material';
 export default function TermsCondition() {
 
     const style = {
@@ -17,6 +18,7 @@ export default function TermsCondition() {
         boxShadow: 24,
         mt: 30
     };
+    window.scrollTo({ top: 0 })
     return (<>
         <Logo />
         <div style={{ position: "absolute", display: "grid", justifyItems: "center", background: "orange", width: "100%", top: "0", left: "0", height: "40%" }}>
