@@ -27,7 +27,7 @@ const Footer = () => {
   const Navigate = useNavigate()
 
   const handleClick = () => {
-    Navigate("/TermsCondition");
+    Navigate("/termscondition");
   }
 
   return (
@@ -151,7 +151,7 @@ const Footer = () => {
           </Grid>
           <Grid item lg={3} xs={12} align="end"  >
             <Hidden mdDown>
-              <Button onClick={handleClick} sx={{ mr: "6.7vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & Conditions</u></Button>
+              <Button onClick={handleClick} sx={{ mr: "5.7vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & Conditions</u></Button>
             </Hidden>
             <Hidden smUp>
               <Button onClick={handleClick} sx={{ mr: "25vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & conditions</u></Button>
