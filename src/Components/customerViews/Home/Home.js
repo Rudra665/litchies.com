@@ -130,8 +130,9 @@ const Home = () => {
                     borderRadius: "10px",
                     color: "white",
                     backgroundColor: "#ec5858",
-                    width: "160px",
-                    // height: "5vh",
+                    marginRight: 5,
+                    marginBlock: 4,
+                    width: "171px",
                   }}
                 >
                   Invite Friends

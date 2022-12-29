@@ -12,7 +12,7 @@ const Home = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-   
+
     <div
       id="home"
       className="header"
@@ -37,7 +37,7 @@ const Home = () => {
             md={6}
             lg={6}
             alignItems="center"
-            sx={{ mt: 4, justifyContent: "center", display:"flex" }}
+            sx={{ mt: 4, justifyContent: "center", display: "flex" }}
           >
             <Box justifyContent={"center"} sx={{ mt: 3 }} >
               <h1
@@ -81,7 +81,7 @@ const Home = () => {
                       borderRadius: "10px",
                       color: "white",
                       backgroundColor: "#ec5858",
-                      margin:5,
+                      margin: 5,
 
                       width: "160px",
                       // height: "5vh",
@@ -101,7 +101,8 @@ const Home = () => {
                     color: "white",
                     backgroundColor: "#ec5858",
                     width: "160px",
-                    margin:5,
+                    margin: 5,
+
                     // height: "5vh",
                   }}
                 >
