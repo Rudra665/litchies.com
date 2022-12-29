@@ -22,8 +22,8 @@ export default function TermsCondition() {
     return (<>
 
         <div style={{ position: "absolute", display: "grid", justifyItems: "center", background: "orange", width: "100%", top: "0", left: "0", height: "40%" }}>
-            <Box sx={{ zIndex: "4", position: "absolute", left: "43.5%", top: 20 }}><img src={logo} width="200vh"></img></Box>
-            <Box sx={{ display: "flex", justifyContent: "center", mt: 15 }}>
+            <Box sx={{ zIndex: "4", width: "100%", display: "grid", position: "inherit", justifyContent: "center", mt: 4 }}><img src={logo} width="200vh"></img></Box>
+            <Box sx={{ display: "flex", justifyContent: "center", mt: 15, width: "100%" }}>
                 <Typography variant='h3' fontWeight="700" align="center" fontSize="4vh" >Terms & Conditions</Typography>
             </Box>
             <Box sx={style} >
