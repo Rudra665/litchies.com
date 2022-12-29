@@ -163,7 +163,7 @@ const Footer = () => {
         <Typography color="#ffff">
           Copyright <span>&copy;</span> 2022
         </Typography>
-        <Button onClick={handleClick} sx={{ mr: "5.7vw", color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & Conditions</u></Button>
+        <Button onClick={handleClick} sx={{ color: "#303030", cursor: "pointer", fontSize: "12px" }}><u>Terms & Conditions</u></Button>
       </div>
     </>
   );
