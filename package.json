@@ -22,10 +22,11 @@
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
     "react-share": "^4.4.1",
+    "semantic-ui-react": "^2.1.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set PORT=4000 && react-scripts start",
+    "start": "set PORT=3400 && react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build && cp build/index.html build/404.html",
