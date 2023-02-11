@@ -29,7 +29,7 @@
     "start": "set PORT=3400 && react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "react-scripts build && cp build/index.html build/404.html",
+    "build": "react-scripts build && build/index.html build/404.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
