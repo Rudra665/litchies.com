@@ -19,7 +19,6 @@ const Home = () => {
       style={{
         height: "100vh",
         width: "100%",
-        paddingBlockStart: "90px",
       }}
     >
       <Container maxWidth="xl">

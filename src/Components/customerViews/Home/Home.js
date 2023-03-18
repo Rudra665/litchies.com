@@ -25,7 +25,7 @@ const Home = () => {
       id="home"
       className="header"
       style={{
-        height: "90vh",
+        height: "100vh",
         width: "100%",
       }}
     >
@@ -34,7 +34,7 @@ const Home = () => {
           container
           spacing={2}
           sx={{
-            mt: "12vh",
+            mt: "auto",
             justifyContent: "space-around",
           }}
         >
