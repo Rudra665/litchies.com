@@ -1,21 +1,19 @@
 import React from "react";
-
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes} from "react-router-dom";
 import CustomerPage from "./CustomerPage";
 import Seller from "./Seller";
 import TermsCondition from "./Terms&Condition";
-import AppLink from "./Components/appLinkJson/appLink";
+import AssetLinks from "./.well-known/assetlinks.json"
 
 const App = () => {
   return (
     <>
       <div>
         <Routes>
-          <Route exact path="/" element={<CustomerPage />}></Route>
-          <Route path="*" element={<CustomerPage />}></Route>
-          <Route path="/.well-known/assetlinks.json" element={<AppLink />}></Route>
-          <Route exact path="/Seller" element={<Seller />}></Route>
-          <Route exact path="/termscondition" element={<TermsCondition />}></Route>
+        <Route exact path="/" element={<CustomerPage />}></Route>
+          <Route path="/Seller" element={<Seller />}></Route>
+          <Route path="/termscondition" element={<TermsCondition />}></Route>
+          <Route path="*"/>
         </Routes>
       </div>
     </>
