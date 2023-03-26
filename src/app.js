@@ -14,7 +14,6 @@ const App = () => {
         <Route exact path="/" element={<CustomerPage />}></Route>
           <Route path="/Seller" element={<Seller />}></Route>
           <Route path="/termscondition" element={<TermsCondition />}></Route>
-          <Route path="/.well-known/assetlinks.json" element={<AssetLinks />}></Route>
           <Route path="*"/>
         </Routes>
       </div>
