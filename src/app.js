@@ -3,7 +3,6 @@ import { Navigate, Route, Routes} from "react-router-dom";
 import CustomerPage from "./CustomerPage";
 import Seller from "./Seller";
 import TermsCondition from "./Terms&Condition";
-import AssetLinks from "./Components/Assetlinks";
 
 
 const App = () => {
