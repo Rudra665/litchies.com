@@ -4,15 +4,14 @@ function AssetLinks() {
   const [assetLinks, setAssetLinks] = useState('');
 
   useEffect(() => {
-    fetch('/.well-known/assetlinks.json')
-      .then(response => response.text())
+    fetch('https://drive.google.com/uc?id=1YC4hiVhW54nTcFVTB0aOLcxIJhXrBbC8')
+      .then(response => response.json())
       .then(data => setAssetLinks(data));
   }, []);
 
   return (
     <div>
-      <h1>Displaying Asset Links JSON on Website</h1>
-      <div>{assetLinks}</div>
+      <pre>{assetLinks}</pre>
     </div>
   );
 }
